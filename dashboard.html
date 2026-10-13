@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventLens — Event Intelligence</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <nav class="navbar dashboard-nav">
+
+        <a href="index.html" class="logo">
+            EVENT<span>LENS</span>
+        </a>
+
+        <div class="dashboard-nav-center">
+            <span class="nav-status"></span>
+            EVENT INTELLIGENCE
+        </div>
+
+        <div class="dashboard-nav-right">
+            <span id="navEventName">EVENT</span>
+            <a href="event.html">EDIT</a>
+        </div>
+
+    </nav>
+
+    <main class="dashboard-page">
+
+        <section class="dashboard-hero">
+
+            <div class="hero-topline">
+                <span>EVENTLENS / ANALYSIS</span>
+                <span id="analysisDate">2026</span>
+            </div>
+
+            <div class="dashboard-title">
+
+                <p class="eyebrow">
+                    PHOTOGRAPHY INTELLIGENCE
+                </p>
+
+                <h1>
+                    YOUR EVENT.<br>
+                    <span>UNDERSTOOD.</span>
+                </h1>
+
+                <p class="dashboard-intro">
+                    EventLens has analyzed your event structure and prepared
+                    a photography strategy designed around the moments that matter.
+                </p>
+
+            </div>
+
+            <div class="event-summary">
+
+                <div class="summary-item">
+                    <span>EVENT</span>
+                    <strong id="eventNameDisplay">—</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span>TYPE</span>
+                    <strong id="eventTypeDisplay">—</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span>VENUE</span>
+                    <strong id="venueDisplay">—</strong>
+                </div>
+
+                <div class="summary-item">
+                    <span>PHOTOGRAPHERS</span>
+                    <strong id="photographersDisplay">—</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="intelligence-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    01
+                </div>
+
+                <div>
+                    <p class="section-kicker">
+                        AI EVENT ANALYSIS
+                    </p>
+
+                    <h2>
+                        UNDERSTANDING<br>
+                        <span>THE SCENE.</span>
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="analysis-grid">
+
+                <article class="intel-card large-card">
+
+                    <div class="card-top">
+                        <span>EVENT STRUCTURE</span>
+                        <span>01</span>
+                    </div>
+
+                    <div class="structure-list"></div>
+
+                </article>
+
+                <article class="intel-card">
+
+                    <div class="card-top">
+                        <span>KEY MOMENTS</span>
+                        <span>04</span>
+                    </div>
+
+                    <div class="moment-stack"></div>
+
+                </article>
+
+                <article class="intel-card">
+
+                    <div class="card-top">
+                        <span>EVENT CONDITIONS</span>
+                        <span>05</span>
+                    </div>
+
+                    <div class="condition-list">
+
+                        <div>
+                            <span>ATTENDEES</span>
+                            <strong id="attendeesDisplay">—</strong>
+                        </div>
+
+                        <div>
+                            <span>ENVIRONMENT</span>
+                            <strong id="environmentDisplay">—</strong>
+                        </div>
+
+                        <div>
+                            <span>STYLE</span>
+                            <strong id="styleDisplay">—</strong>
+                        </div>
+
+                        <div>
+                            <span>DURATION</span>
+                            <strong id="durationDisplay">—</strong>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="timeline-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    02
+                </div>
+
+                <div>
+                    <p class="section-kicker">
+                        EVENT TIMELINE
+                    </p>
+
+                    <h2>
+                        FOLLOW<br>
+                        <span>THE MOMENT.</span>
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-time">
+                        START
+                    </div>
+
+                    <div class="timeline-marker"></div>
+
+                    <div class="timeline-content">
+
+                        <span class="priority critical">
+                            CRITICAL
+                        </span>
+
+                        <h3>
+                            Arrival &amp; Opening
+                        </h3>
+
+                        <p>
+                            Establish venue atmosphere, arrivals,
+                            registration and opening interactions.
+                        </p>
+
+                        <div class="timeline-tags">
+                            <span>ENVIRONMENT</span>
+                            <span>CANDID</span>
+                            <span>PEOPLE</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-time">
+                        PHASE 02
+                    </div>
+
+                    <div class="timeline-marker"></div>
+
+                    <div class="timeline-content">
+
+                        <span class="priority high">
+                            HIGH
+                        </span>
+
+                        <h3>
+                            Main Activity
+                        </h3>
+
+                        <p>
+                            Focus coverage on the central experience
+                            and active participants.
+                        </p>
+
+                        <div class="timeline-tags">
+                            <span>ACTION</span>
+                            <span>REACTION</span>
+                            <span>DETAIL</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-time">
+                        PHASE 03
+                    </div>
+
+                    <div class="timeline-marker"></div>
+
+                    <div class="timeline-content">
+
+                        <span class="priority high">
+                            HIGH
+                        </span>
+
+                        <h3>
+                            Featured Moments
+                        </h3>
+
+                        <p>
+                            Prioritize important people, performances,
+                            interactions and peak activity.
+                        </p>
+
+                        <div class="timeline-tags">
+                            <span>PORTRAIT</span>
+                            <span>PERFORMANCE</span>
+                            <span>CROWD</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-time">
+                        END
+                    </div>
+
+                    <div class="timeline-marker"></div>
+
+                    <div class="timeline-content">
+
+                        <span class="priority medium">
+                            MEDIUM
+                        </span>
+
+                        <h3>
+                            Closing Atmosphere
+                        </h3>
+
+                        <p>
+                            Capture final interactions, group photographs
+                            and the emotional conclusion.
+                        </p>
+
+                        <div class="timeline-tags">
+                            <span>GROUP</span>
+                            <span>CANDID</span>
+                            <span>DETAIL</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="shot-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    03
+                </div>
+
+                <div>
+                    <p class="section-kicker">
+                        INTELLIGENT SHOT LIST
+                    </p>
+
+                    <h2>
+                        DON'T JUST<br>
+                        <span>TAKE PHOTOS.</span>
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="shot-controls">
+
+                <button class="shot-filter active" data-filter="all">
+                    ALL
+                </button>
+
+                <button class="shot-filter" data-filter="critical">
+                    CRITICAL
+                </button>
+
+                <button class="shot-filter" data-filter="high">
+                    HIGH
+                </button>
+
+                <button class="shot-filter" data-filter="medium">
+                    MEDIUM
+                </button>
+
+            </div>
+
+            <div class="shot-list"></div>
+
+        </section>
+
+        <section class="assignment-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    04
+                </div>
+
+                <div>
+                    <p class="section-kicker">
+                        PHOTOGRAPHER ASSIGNMENT
+                    </p>
+
+                    <h2>
+                        EVERY ANGLE<br>
+                        <span>HAS A PURPOSE.</span>
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="assignment-grid" id="assignmentGrid"></div>
+
+            <div class="risk-panel">
+
+                <div class="risk-icon">
+                    !
+                </div>
+
+                <div>
+                    <span>COVERAGE RISK</span>
+                    <h3>Analyzing coverage...</h3>
+                    <p>Please wait.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="dont-miss-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    05
+                </div>
+
+                <div>
+                    <p class="section-kicker">
+                        CRITICAL COVERAGE
+                    </p>
+
+                    <h2>
+                        DON'T<br>
+                        <span>MISS THIS.</span>
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="dont-miss-grid"></div>
+
+        </section>
+
+        <section class="creative-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    06
+                </div>
+
+                <div>
+                    <p class="section-kicker">
+                        CREATIVE DIRECTION
+                    </p>
+
+                    <h2>
+                        MAKE IT<br>
+                        <span>MEMORABLE.</span>
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="creative-grid"></div>
+
+        </section>
+
+        <section class="prompt-section">
+
+            <div class="prompt-header">
+
+                <div>
+
+                    <p class="section-kicker">
+                        TRANSPARENCY MODE
+                    </p>
+
+                    <h2>
+                        THE <span>PROMPT LAB.</span>
+                    </h2>
+
+                </div>
+
+                <p>
+                    EventLens doesn't simply ask an AI for ideas.
+                    It builds a structured reasoning pipeline using
+                    prompt-engineering techniques.
+                </p>
+
+            </div>
+
+            <div class="prompt-pipeline">
+
+                <div class="prompt-node">
+                    <span>01</span>
+                    <strong>ROLE</strong>
+                    <p>Professional event photography director</p>
+                </div>
+
+                <div class="pipeline-arrow">
+                    →
+                </div>
+
+                <div class="prompt-node">
+                    <span>02</span>
+                    <strong>CONTEXT</strong>
+                    <p>Event details, schedule and constraints</p>
+                </div>
+
+                <div class="pipeline-arrow">
+                    →
+                </div>
+
+                <div class="prompt-node">
+                    <span>03</span>
+                    <strong>STRUCTURE</strong>
+                    <p>JSON-based photography analysis</p>
+                </div>
+
+                <div class="pipeline-arrow">
+                    →
+                </div>
+
+                <div class="prompt-node">
+                    <span>04</span>
+                    <strong>REFINE</strong>
+                    <p>Critique conflicts and improve coverage</p>
+                </div>
+
+            </div>
+
+            <div class="prompt-example">
+
+                <div class="prompt-side">
+
+                    <span>BASIC PROMPT</span>
+
+                    <div class="prompt-box">
+                        <p>
+                            "Give me a photography plan for my event."
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="prompt-side engineered">
+
+                    <span>ENGINEERED PROMPT</span>
+
+                    <div class="prompt-box">
+
+                        <p>
+                            You are an experienced event photography director.
+                            Analyze the provided event context, identify critical
+                            moments, account for photographer availability, detect
+                            coverage conflicts and return a structured photography
+                            plan with priorities and techniques.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="checklist-section">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    07
+                </div>
+
+                <div>
+                    <p class="section-kicker">
+                        LIVE MODE
+                    </p>
+
+                    <h2>
+                        CAPTURE<br>
+                        <span>THE PLAN.</span>
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="checklist-header">
+
+                <div>
+                    <span>SHOT COMPLETION</span>
+                    <strong id="completionPercent">
+                        0%
+                    </strong>
+                </div>
+
+                <div class="completion-bar">
+                    <div id="completionBar"></div>
+                </div>
+
+            </div>
+
+            <div class="live-checklist" id="liveChecklist"></div>
+
+        </section>
+
+        <section class="final-section">
+
+            <p>
+                EVENTLENS / READY TO CAPTURE
+            </p>
+
+            <h2>
+                SEE IT.<br>
+                <span>CAPTURE IT.</span>
+            </h2>
+
+            <a href="event.html" class="hero-button">
+                <span>PLAN ANOTHER EVENT</span>
+                <span class="arrow">↗</span>
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <span>EVENTLENS</span>
+        <span>AI × PHOTOGRAPHY</span>
+        <span>2026</span>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

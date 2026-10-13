@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --obsidian: #08070a;
+    --surface: #0f0d12;
+    --surface-2: #151219;
+    --crimson: #b1123f;
+    --crimson-bright: #d51d51;
+    --violet: #6f3fa8;
+    --white: #f1edf3;
+    --muted: #8c8790;
+    --line: rgba(241, 237, 243, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--obsidian);
+    color: var(--white);
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+.cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--crimson-bright);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    border-bottom: 1px solid var(--line);
+    background: rgba(8, 7, 10, 0.95);
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+}
+
+.logo span {
+    color: var(--crimson-bright);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.nav-links a {
+    color: var(--muted);
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+.nav-button {
+    padding: 13px 18px;
+    border: 1px solid var(--line);
+    color: var(--white) !important;
+}
+
+.hero {
+    min-height: 100vh;
+    padding: 150px 5vw 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    right: 8%;
+    width: 1px;
+    height: 65%;
+    background: var(--violet);
+    opacity: 0.35;
+}
+
+.hero-meta {
+    position: absolute;
+    top: 120px;
+    left: 5vw;
+    right: 5vw;
+    display: flex;
+    justify-content: space-between;
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+}
+
+.hero-content {
+    max-width: 1150px;
+}
+
+.eyebrow,
+.section-label {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--crimson-bright);
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    font-size: clamp(60px, 9vw, 150px);
+    line-height: 0.88;
+    letter-spacing: -0.075em;
+    font-weight: 700;
+    max-width: 1200px;
+}
+
+.hero h1 span,
+.statement h2 span,
+.closing h2 span {
+    color: var(--crimson-bright);
+}
+
+.hero-description {
+    margin-top: 45px;
+    max-width: 480px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 35px;
+    margin-top: 45px;
+    padding: 17px 22px;
+    border: 1px solid var(--line);
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.hero-button:hover {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    transform: translateY(-3px);
+}
+
+.arrow {
+    font-size: 17px;
+}
+
+.hero-index {
+    position: absolute;
+    bottom: 40px;
+    left: 5vw;
+    right: 5vw;
+    display: flex;
+    justify-content: space-between;
+    font-family: "DM Mono", monospace;
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.statement,
+.process,
+.closing {
+    padding: 160px 5vw;
+    border-bottom: 1px solid var(--line);
+}
+
+.statement-content {
+    max-width: 1100px;
+    margin-left: auto;
+}
+
+.statement h2 {
+    font-size: clamp(42px, 6vw, 92px);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    max-width: 1000px;
+}
+
+.statement p {
+    margin-top: 55px;
+    max-width: 520px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.process-list {
+    margin-top: 80px;
+    border-top: 1px solid var(--line);
+}
+
+.process-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    padding: 35px 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.4s ease;
+}
+
+.process-item:hover {
+    padding-left: 25px;
+    background: rgba(177, 18, 63, 0.05);
+}
+
+.process-number {
+    font-family: "DM Mono", monospace;
+    color: var(--violet);
+    font-size: 12px;
+}
+
+.process-item h3 {
+    font-size: 34px;
+    letter-spacing: -0.04em;
+}
+
+.process-item p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.closing {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.closing>p {
+    font-family: "DM Mono", monospace;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    margin-bottom: 25px;
+}
+
+.closing h2 {
+    font-size: clamp(60px, 10vw, 150px);
+    line-height: 0.85;
+    letter-spacing: -0.075em;
+}
+
+footer {
+    min-height: 100px;
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "DM Mono", monospace;
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 700px) {
+
+    .nav-links a:not(.nav-button) {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 15vw;
+    }
+
+    .statement,
+    .process,
+    .closing {
+        padding: 110px 6vw;
+    }
+
+    .process-item {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .process-item h3 {
+        font-size: 25px;
+    }
+
+    footer {
+        padding: 0 6vw;
+    }
+
+    footer span:nth-child(2) {
+        display: none;
+    }
+}

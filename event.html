@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event — EventLens</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/event.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            EVENT<span>LENS</span>
+        </a>
+
+        <div class="event-progress">
+            <span class="active">01</span>
+            <span>/</span>
+            <span>03</span>
+        </div>
+
+    </nav>
+
+    <main class="event-page">
+
+        <div class="event-heading">
+
+            <p class="eyebrow">
+                EVENT CONFIGURATION
+            </p>
+
+            <h1>
+                LET'S SET<br>
+                <span>THE SCENE.</span>
+            </h1>
+
+            <p>
+                Give EventLens the context it needs to understand your event.
+            </p>
+
+        </div>
+
+        <form id="eventForm">
+
+            <section class="form-section">
+
+                <div class="form-label">
+                    <span>01</span>
+                    <p>EVENT IDENTITY</p>
+                </div>
+
+                <div class="form-fields">
+
+                    <div class="field">
+                        <label for="eventName">
+                            EVENT NAME
+                        </label>
+
+                        <input type="text" id="eventName" placeholder="e.g. NMIMS Cultural Fest" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="eventType">
+                            EVENT TYPE
+                        </label>
+
+                        <select id="eventType" required>
+                            <option value="">Select type</option>
+                            <option>College Festival</option>
+                            <option>Conference</option>
+                            <option>Workshop</option>
+                            <option>Seminar</option>
+                            <option>Concert</option>
+                            <option>Sports Event</option>
+                            <option>Corporate Event</option>
+                            <option>Wedding</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="venue">
+                            VENUE
+                        </label>
+
+                        <input type="text" id="venue" placeholder="e.g. Main Auditorium" required>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="form-label">
+                    <span>02</span>
+                    <p>EVENT CONDITIONS</p>
+                </div>
+
+                <div class="form-fields grid-three">
+
+                    <div class="field">
+                        <label for="date">
+                            DATE
+                        </label>
+
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="startTime">
+                            START TIME
+                        </label>
+
+                        <input type="time" id="startTime" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="endTime">
+                            END TIME
+                        </label>
+
+                        <input type="time" id="endTime" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="attendees">
+                            EXPECTED ATTENDEES
+                        </label>
+
+                        <input type="number" id="attendees" placeholder="500" min="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="photographers">
+                            PHOTOGRAPHERS
+                        </label>
+
+                        <input type="number" id="photographers" placeholder="2" min="1" max="20" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="environment">
+                            ENVIRONMENT
+                        </label>
+
+                        <select id="environment" required>
+                            <option value="">Select</option>
+                            <option>Indoor</option>
+                            <option>Outdoor</option>
+                            <option>Indoor + Outdoor</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="form-label">
+                    <span>03</span>
+                    <p>PHOTOGRAPHY STYLE</p>
+                </div>
+
+                <div class="style-options">
+
+                    <label class="style-option">
+                        <input type="radio" name="style" value="Candid" required>
+                        <span>CANDID</span>
+                    </label>
+
+                    <label class="style-option">
+                        <input type="radio" name="style" value="Cinematic">
+                        <span>CINEMATIC</span>
+                    </label>
+
+                    <label class="style-option">
+                        <input type="radio" name="style" value="Documentary">
+                        <span>DOCUMENTARY</span>
+                    </label>
+
+                    <label class="style-option">
+                        <input type="radio" name="style" value="Professional">
+                        <span>PROFESSIONAL</span>
+                    </label>
+
+                    <label class="style-option">
+                        <input type="radio" name="style" value="Mixed">
+                        <span>MIXED</span>
+                    </label>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="form-label">
+                    <span>04</span>
+                    <p>IMPORTANT DETAILS</p>
+                </div>
+
+                <div class="field">
+
+                    <label for="importantDetails">
+                        PEOPLE / PERFORMANCES / MOMENTS
+                    </label>
+
+                    <textarea id="importantDetails"
+                        placeholder="e.g. Chief guest, dance performance, awards, organizing team..."></textarea>
+
+                </div>
+
+            </section>
+
+            <div class="submit-section">
+
+                <button type="submit" class="generate-button">
+                    <span>ANALYZE EVENT</span>
+                    <span>↗</span>
+                </button>
+
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- AI Analysis HUD Overlay -->
+    <div class="ai-modal-overlay" id="aiOverlay">
+        <div class="ai-hud-container">
+            <div class="ai-scanner-orb" id="aiScannerOrb">
+                <div class="ai-ring"></div>
+                <div class="ai-ring-inner"></div>
+                <div class="ai-core-pulse"></div>
+            </div>
+            <h2 class="ai-hud-title" id="aiHudTitle">ANALYZING EVENT</h2>
+            <div class="ai-hud-ticker" id="aiHudTicker">CONNECTING TO GOOGLE GEMINI NEURAL ENGINE...</div>
+            <div class="ai-progress-track">
+                <div class="ai-progress-bar" id="aiProgressBar"></div>
+            </div>
+            <div class="ai-hud-mode-pill" id="aiHudPill">GOOGLE GEMINI • PIPELINE RUNNING</div>
+        </div>
+    </div>
+
+    <script src="js/event.js"></script>
+</body>
+
+</html>
