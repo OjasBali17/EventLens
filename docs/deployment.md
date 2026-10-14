@@ -1,28 +1,29 @@
-# Deployment notes
+# Vercel deployment
 
-EventLens currently contains a local-development frontend and a FastAPI backend. It does not include a production hosting configuration, domain, database, authentication, rate limiting, or CI deployment workflow.
+EventLens can run as one Vercel FastAPI project. The FastAPI app serves the website, static assets, and `/analyze-event` from the same origin.
 
-## Separate frontend and backend hosting
+## Vercel project settings
 
-1. Host the static files (`index.html`, `event.html`, `dashboard.html`, `css/`, and `js/`) on a static site host.
-2. Host `backend/main.py` as an HTTPS FastAPI service with the packages in `backend/requirements.txt`.
-3. Configure `GEMINI_API_KEY` and optionally `GEMINI_MODEL` as backend secrets/environment variables.
-4. Update the frontend API URL in `js/event.js` from its local development address (`http://127.0.0.1:8000`) to the deployed HTTPS backend URL.
-5. Restrict backend CORS to the exact frontend origin before opening the service to the public.
-6. Confirm `GET /` works, submit a sample event, and inspect the response's `ai_powered` field to verify which mode ran.
+- **Root Directory:** repository root (`.`), not `backend`
+- **Framework preset:** FastAPI (or Other if Vercel does not select it automatically)
+- **Python entry point:** `backend.main:app`, configured in the root `pyproject.toml`
+- **Environment variable:** `GEMINI_API_KEY`, set as a Vercel Secret for Production
+- **Optional environment variable:** `GEMINI_MODEL`
 
-The browser must never receive the Gemini key. The API URL is public configuration and is safe to put in frontend code.
+The Gemini key belongs in Vercel's Environment Variables settings and in the ignored local `backend/.env` only. Never add it to browser JavaScript or Git.
 
-## Persistent plans
+## Deploy
 
-Plans currently live only in browser local storage. For accounts, cross-device access, or durable event history, the project needs a database, authentication, ownership checks, retention rules, and privacy controls. These are not implemented.
+1. In Vercel, open the EventLens project and set its Root Directory to the repository root.
+2. Save the setting and deploy the latest commit from the `main` branch.
+3. Confirm the website opens at the project's production domain.
+4. Open `/health` on that domain and confirm `api_key_configured` is `true`.
+5. Create a sample event from the website and confirm the resulting plan identifies Google Gemini as its engine.
 
-## Production readiness checklist
+The frontend uses a same-origin request in production, so no second backend URL or cross-origin CORS setup is needed. For local development, it continues to call `http://127.0.0.1:8000`.
 
-- Use HTTPS for both site and API.
-- Store secrets in the hosting provider's secret manager.
-- Set production CORS origins and rate limits.
-- Add monitoring for API errors, latency, and Gemini quota.
-- Decide data retention and privacy policy for event details.
-- Validate backup/restore if a database is added.
-- Pin and update dependencies; run automated checks in CI.
+## Current limitations
+
+- Plans are kept in browser local storage. There is no account system or shared cloud history.
+- The public analysis endpoint has no authentication or rate limiting. Set a conservative Gemini quota and monitor usage before sharing the site widely.
+- Event details sent for analysis are processed by the configured Gemini API and retained only in that user's browser by this application.

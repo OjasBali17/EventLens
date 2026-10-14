@@ -35,15 +35,21 @@ _read_env_manually()
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, field_validator
 from google import genai
 from google.genai import types
 
 app = FastAPI(title="EventLens AI")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 FRONTEND_ORIGINS = [
     origin.strip()
-    for origin in os.getenv("FRONTEND_ORIGINS", "https://eventlens.vercel.app").split(",")
+    for origin in os.getenv(
+        "FRONTEND_ORIGINS",
+        "https://evventlens.vercel.app,http://127.0.0.1:5500,http://localhost:5500",
+    ).split(",")
     if origin.strip()
 ]
 
@@ -437,7 +443,7 @@ def generate_tailored_plan(event_data: dict) -> dict:
     }
 
 
-@app.get("/")
+@app.get("/health")
 def root():
     api_key_set = bool(os.getenv("GEMINI_API_KEY"))
     return {
@@ -681,3 +687,23 @@ CONSTRAINTS:
     fallback["ai_powered"] = False
     fallback["model"] = "None (Offline Rules)"
     return fallback
+
+
+@app.get("/", include_in_schema=False)
+def home_page():
+    return FileResponse(PROJECT_ROOT / "index.html")
+
+
+@app.get("/event.html", include_in_schema=False)
+def event_page():
+    return FileResponse(PROJECT_ROOT / "event.html")
+
+
+@app.get("/dashboard.html", include_in_schema=False)
+def dashboard_page():
+    return FileResponse(PROJECT_ROOT / "dashboard.html")
+
+
+app.mount("/css", StaticFiles(directory=PROJECT_ROOT / "css"), name="css")
+app.mount("/js", StaticFiles(directory=PROJECT_ROOT / "js"), name="js")
+app.mount("/assets", StaticFiles(directory=PROJECT_ROOT / "assets"), name="assets")

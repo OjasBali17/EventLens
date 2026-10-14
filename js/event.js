@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // The Gemini key stays on the backend; only the public API URL belongs here.
-    const API_URL = "https://evventlens.vercel.app/analyze-event";
+    // Keep local development on its local API; use the same-origin API in production.
+    const isLocal = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+    const API_URL = isLocal
+        ? "http://127.0.0.1:8000/analyze-event"
+        : "/analyze-event";
 
     const form = document.getElementById("eventForm");
     const button = document.querySelector(".generate-button");

@@ -3,7 +3,7 @@
 ## The page says it cannot connect to the AI engine
 
 1. Confirm the API is running in its own terminal: `python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000` from `D:\EventLens\backend`.
-2. Open `http://127.0.0.1:8000/`. If it does not load, the problem is backend startup or the port, not Gemini.
+2. Open `http://127.0.0.1:8000/health`. If it does not load, the problem is backend startup or the port, not Gemini.
 3. Check the backend terminal for Python import errors. Install dependencies in the active environment with `pip install -r requirements.txt`.
 4. If the API is online but `ai_powered` is false, check that `backend/.env` contains a valid `GEMINI_API_KEY`, then restart the backend.
 5. Inspect the browser console and backend terminal for the specific error. Do not share API keys in screenshots or logs.

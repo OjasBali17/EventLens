@@ -23,7 +23,7 @@ The frontend is plain HTML, CSS, and JavaScript; it has no build step or fronten
 - `dashboard.html` and `js/dashboard.js`: reads the saved event/analysis, renders the plan, filters the shot list, and updates checklist progress.
 - `css/style.css`, `css/event.css`, `css/dashboard.css`: shared and page-specific styling.
 
-## `GET /`
+## `GET /health`
 
 Health and configuration summary. Example fields:
 

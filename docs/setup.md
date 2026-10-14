@@ -42,7 +42,7 @@ Start the API from the `backend` directory:
 python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-Keep this terminal open. Visit `http://127.0.0.1:8000/` to confirm the API reports `"status":"online"`.
+Keep this terminal open. Visit `http://127.0.0.1:8000/health` to confirm the API reports `"status":"online"`.
 
 ## 2. Start the frontend
 
