@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // The Gemini key stays on the backend; only the public API URL belongs here.
+    const API_URL = "https://evventlens.vercel.app/analyze-event";
+
     const form = document.getElementById("eventForm");
     const button = document.querySelector(".generate-button");
     const overlay = document.getElementById("aiOverlay");
@@ -45,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
 
             const response = await fetch(
-                "http://127.0.0.1:8000/analyze-event",
+                API_URL,
                 {
                     method: "POST",
                     headers: {
@@ -100,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (isNetworkError) {
                 alert(
-                    "EventLens could not connect to the backend server (http://127.0.0.1:8000).\n\nPlease make sure the backend is running:\ncd backend\npython -m uvicorn main:app --reload"
+                    "EventLens could not connect to its backend. Please try again in a moment."
                 );
             } else {
                 alert(error.message || "EventLens could not connect to the AI engine. Check the browser console.");

@@ -41,9 +41,15 @@ from google.genai import types
 
 app = FastAPI(title="EventLens AI")
 
+FRONTEND_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv("FRONTEND_ORIGINS", "https://eventlens.vercel.app").split(",")
+    if origin.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=FRONTEND_ORIGINS,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"]
