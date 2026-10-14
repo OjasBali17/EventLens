@@ -61,10 +61,8 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-PRIMARY_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
-FALLBACK_MODELS = [
-    "gemini-3.5-flash-lite",
-]
+PRIMARY_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
+FALLBACK_MODELS = ["gemini-3.1-flash-lite"]
 
 
 def get_gemini_client():
@@ -128,6 +126,23 @@ class EventAnalysis(BaseModel):
     activity_periods: list[ActivityPeriod]
     coverage_requirements: list[str]
     potential_conflicts: list[str]
+
+    @field_validator("potential_conflicts", mode="before")
+    @classmethod
+    def normalize_conflicts(cls, value):
+        if not isinstance(value, list):
+            return value
+        normalized = []
+        for item in value:
+            if isinstance(item, dict):
+                item = (
+                    item.get("conflict")
+                    or item.get("description")
+                    or item.get("text")
+                    or json.dumps(item)
+                )
+            normalized.append(str(item))
+        return normalized
 
 
 class Shot(BaseModel):
