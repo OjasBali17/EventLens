@@ -704,6 +704,7 @@ def dashboard_page():
     return FileResponse(PROJECT_ROOT / "dashboard.html")
 
 
-app.mount("/css", StaticFiles(directory=PROJECT_ROOT / "css"), name="css")
-app.mount("/js", StaticFiles(directory=PROJECT_ROOT / "js"), name="js")
-app.mount("/assets", StaticFiles(directory=PROJECT_ROOT / "assets"), name="assets")
+for static_dir in ("css", "js", "assets"):
+    static_path = PROJECT_ROOT / static_dir
+    if static_path.is_dir():
+        app.mount(f"/{static_dir}", StaticFiles(directory=static_path), name=static_dir)
