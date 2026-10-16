@@ -80,6 +80,12 @@ body > nav, body > main, body > footer { position: relative; z-index: 1; }
     margin-top: 20px;
     color: var(--muted);
     font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 700;
+    line-height: 1.65;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(255, 248, 236, .96);
 }
 .info-grid {
     display: grid;
@@ -130,7 +136,7 @@ body > nav, body > main, body > footer { position: relative; z-index: 1; }
     font-size: clamp(19px, 2.4vw, 25px);
     letter-spacing: -.045em;
 }
-.info-card p, .workflow-step p { position: relative; margin-top: 9px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.info-card p, .workflow-step p { position: relative; margin-top: 9px; color: var(--ink); font-size: 13px; font-weight: 700; line-height: 1.6; padding: 8px 10px; border: 1px solid rgba(48, 25, 64, .12); border-radius: 10px; background: rgba(255, 248, 236, .97); }
 .info-note { margin-top: 30px; color: var(--plum); font-size: 12px; font-weight: 700; }
 .workflow-list { margin-top: 44px; border-top: 1px solid var(--line); }
 .workflow-step {
@@ -143,11 +149,12 @@ body > nav, body > main, body > footer { position: relative; z-index: 1; }
     border-radius: 0;
     background: transparent;
 }
-.workflow-step:nth-child(odd) { background: rgba(255, 201, 51, .10); }
-.workflow-step:nth-child(even) { background: rgba(237, 228, 255, .38); }
+.workflow-step:nth-child(odd) { background: rgba(255, 248, 236, .97); }
+.workflow-step:nth-child(even) { background: rgba(250, 244, 255, .97); }
 .workflow-number { color: var(--purple); font-size: 16px; font-weight: 800; }
 .workflow-step h2 { position: relative; font-size: clamp(21px, 3vw, 30px); letter-spacing: -.045em; }
-.workflow-step p { max-width: 620px; margin-top: 4px; }
+.workflow-step p { max-width: 620px; margin-top: 8px; }
+.info-note { width: fit-content; max-width: 100%; padding: 9px 12px; border-radius: 10px; background: rgba(255, 248, 236, .97); }
 .workflow-tag { justify-self: end; text-align: right; }
 
 .text-type { position: relative; }
@@ -198,4 +205,14 @@ body > nav, body > main, body > footer { position: relative; z-index: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
     .polka-dot, .text-type__char, .text-type__cursor { animation: none !important; }
+}
+
+.checklist-main { min-height: calc(100svh - 70px); }
+.checklist-standalone { margin-top: 38px; padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255, 248, 236, .97); }
+.checklist-standalone .checklist-header { margin: 0 0 20px; }
+.checklist-standalone .live-checklist { max-width: none; }
+.checklist-page .dashboard-nav-center { display: none; }
+.checklist-page .dashboard-nav-right a { background: var(--yellow); }
+@media (max-width: 600px) {
+    .checklist-standalone { padding: 14px; }
 }

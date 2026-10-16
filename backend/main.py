@@ -729,6 +729,11 @@ def dashboard_page():
     return FileResponse(PROJECT_ROOT / "dashboard.html")
 
 
+@app.get("/checklist.html", include_in_schema=False)
+def checklist_page():
+    return FileResponse(PROJECT_ROOT / "checklist.html")
+
+
 for static_dir in ("css", "js", "assets"):
     static_path = PROJECT_ROOT / static_dir
     if static_path.is_dir():

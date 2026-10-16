@@ -11,6 +11,24 @@
     letter-spacing: 0.15em;
     color: var(--muted);
 }
+.dashboard-nav-center { display: none; }
+.engine-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    width: fit-content;
+    margin-bottom: 18px;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--plum);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .06em;
+}
+.engine-badge .nav-status { margin: 0; }
+.engine-badge .nav-status.engine-fallback { background: var(--yellow) !important; box-shadow: none !important; }
 
 .nav-status {
     display: inline-block;
@@ -77,6 +95,11 @@
     color: var(--muted);
     font-size: 15px;
     line-height: 1.8;
+    font-weight: 700;
+    padding: 10px 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(255, 248, 236, .97);
 }
 
 .event-summary {
@@ -990,6 +1013,7 @@
 .dashboard-nav-right { gap: clamp(10px, 2vw, 22px); font-family: "Manrope", sans-serif; font-size: 12px; letter-spacing: 0; font-weight: 700; }
 .dashboard-nav-right a { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
 .dashboard-nav-right a:hover { border-color: var(--purple); color: var(--purple); }
+.dashboard-nav-right .checklist-nav-link { background: var(--yellow); }
 .dashboard-nav-center { font-family: "Manrope", sans-serif; font-size: 11px; letter-spacing: .06em; }
 .nav-status { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
 .dashboard-hero { min-height: 0; padding: 34px 6vw 38px; background: var(--surface-2); border-color: var(--line); }
@@ -1075,7 +1099,7 @@
 .dashboard-nav .logo span { color: var(--purple); }
 
 @media (max-width: 900px) {
-    .dashboard-hero, .intelligence-section, .timeline-section, .shot-section, .assignment-section, .dont-miss-section, .creative-section, .checklist-section { padding-left: 22px; padding-right: 22px; }
+    .dashboard-hero, .intelligence-section, .timeline-section, .shot-section, .assignment-section, .dont-miss-section, .creative-section { padding-left: 22px; padding-right: 22px; }
     .event-summary { row-gap: 15px; }
     .large-card { grid-row: auto; }
     .shot-row { grid-template-columns: 38px minmax(0, 1fr) auto 34px; }
@@ -1086,6 +1110,7 @@
     .dashboard-nav { height: 64px; padding-inline: 14px; }
     .dashboard-nav-right { gap: 6px; font-size: 10px; }
     .dashboard-nav-right a { padding: 7px 8px; }
+    .dashboard-nav-right a[href="about.html"], .dashboard-nav-right a[href="process.html"] { display: none; }
     .dashboard-nav-right span { display: none; }
     .dashboard-hero { padding: 24px 18px 26px; }
     .dashboard-title { padding: 34px 0 24px; }
@@ -1094,7 +1119,7 @@
     .event-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .summary-item { padding: 12px 10px 0 0; }
     .summary-item:not(:first-child) { padding-left: 10px; }
-    .intelligence-section, .timeline-section, .shot-section, .assignment-section, .dont-miss-section, .creative-section, .checklist-section { padding: 48px 18px; }
+    .intelligence-section, .timeline-section, .shot-section, .assignment-section, .dont-miss-section, .creative-section { padding: 48px 18px; }
     .section-heading { grid-template-columns: 30px minmax(0, 1fr); gap: 12px; margin-bottom: 24px; }
     .section-heading h2 { font-size: clamp(28px, 8vw, 40px); }
     .intel-card { padding: 17px; }

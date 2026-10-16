@@ -7,7 +7,7 @@ EventLens is an event photography planning website. It helps a photographer or e
 1. Collects the event name, type, venue, date, schedule, attendance, photography team size, lighting environment, style, and important notes.
 2. Sends those details to a small FastAPI backend.
 3. When a Gemini API key is configured, asks Google Gemini to analyze the event and produce a structured plan.
-4. Shows the plan on a dashboard, including event stages, key moments, shot priorities and techniques, coverage risks, photographer assignments, creative ideas, and a live shot checklist.
+4. Shows the plan on a dashboard, including event stages, key moments, shot priorities and techniques, coverage risks, photographer assignments, and creative ideas. A separate live checklist tracks captured shots.
 5. If Gemini is unavailable or no key is configured, creates a rules-based plan so the site can still be used. The dashboard labels this as non-AI output.
 
 EventLens is a planning assistant. It does not take photographs, schedule staff, or store event plans on a server. Event data and the generated plan are kept in the browser's `localStorage` on the device used to create them.
@@ -21,12 +21,14 @@ EventLens/
 ├── process.html             Photography planning workflow
 ├── event.html               Event details form
 ├── dashboard.html           Photography plan dashboard
+├── checklist.html           Standalone live shot checklist
 ├── css/                     Shared, page and component styles
 ├── js/
 │   ├── polka-dots.js        Decorative pastel background dots
 │   ├── text-type.js         Accessible heading type-on effect
 │   ├── event.js             Form submission and backend request
-│   └── dashboard.js         Plan rendering and checklist behavior
+│   ├── dashboard.js         Photography plan rendering
+│   └── checklist.js         Persistent live checklist behavior
 └── backend/
     ├── main.py              FastAPI API, Gemini integration, fallback planner
     ├── requirements.txt     Python dependencies

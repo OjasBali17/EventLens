@@ -24,13 +24,10 @@ function escapeHtml(value) {
 
 const engineBadge = analysisData.engine || (analysisData.ai_powered ? "Google Gemini AI" : "EventLens Analysis");
 const isAi = analysisData.ai_powered !== false;
-const navCenter = document.querySelector(".dashboard-nav-center");
-if (navCenter) {
-    navCenter.innerHTML = `
-        <span class="nav-status" style="background:${isAi ? '#10b981' : '#f59e0b'}; box-shadow: 0 0 10px ${isAi ? '#10b981' : '#f59e0b'};"></span>
-        ${escapeHtml(engineBadge.toUpperCase())}
-    `;
-}
+const engineName = document.getElementById("engineName");
+if (engineName) engineName.textContent = engineBadge.toUpperCase();
+const engineStatus = document.querySelector(".engine-badge .nav-status");
+if (engineStatus) engineStatus.classList.toggle("engine-fallback", !isAi);
 
 document.getElementById("navEventName").textContent =
     eventData.name.toUpperCase();
@@ -431,104 +428,6 @@ filterButtons.forEach(
         );
     }
 );
-
-const liveChecklist =
-    document.getElementById(
-        "liveChecklist"
-    );
-
-liveChecklist.innerHTML = "";
-
-analysis.shots.forEach(
-    (shot) => {
-
-        const row =
-            document.createElement(
-                "div"
-            );
-
-        row.className =
-            "live-item";
-
-        row.innerHTML = `
-            <span>
-                ${escapeHtml(shot.number)}
-            </span>
-
-            <div>
-
-                <strong>
-                    ${escapeHtml(shot.name)}
-                </strong>
-
-                <small>
-                    ${escapeHtml(shot.priority)}
-                </small>
-
-            </div>
-
-            <button>
-                ✓
-            </button>
-        `;
-
-        row.querySelector(
-            "button"
-        ).addEventListener(
-            "click",
-            () => {
-
-                row.classList.toggle(
-                    "done"
-                );
-
-                updateProgress();
-            }
-        );
-
-        liveChecklist.appendChild(
-            row
-        );
-    }
-);
-
-const completionPercent =
-    document.getElementById(
-        "completionPercent"
-    );
-
-const completionBar =
-    document.getElementById(
-        "completionBar"
-    );
-
-function updateProgress() {
-
-    const items =
-        document.querySelectorAll(
-            ".live-item"
-        );
-
-    const completed =
-        document.querySelectorAll(
-            ".live-item.done"
-        ).length;
-
-    const percentage =
-        items.length === 0
-            ? 0
-            : Math.round(
-                completed /
-                items.length *
-                100
-            );
-
-    completionPercent.textContent =
-        `${percentage}%`;
-
-    completionBar.style.width =
-        `${percentage}%`;
-}
 
 const revealItems =
     document.querySelectorAll(

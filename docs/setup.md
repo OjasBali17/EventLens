@@ -62,7 +62,7 @@ If Python is not on the system PATH, run the static server with the same Python 
 1. Enter event details and select the photography style.
 2. Submit the form and wait for the analysis. Gemini mode usually takes longer than the offline planner.
 3. Review the event stages, important moments, timeline, shot list, assignments, risks, and creative suggestions.
-4. Use the checklist to track captured shots. The plan is stored in this browser's local storage.
+4. Open **Checklist** from the dashboard to track captured shots. Completion is saved in this browser's local storage for that event.
 
 ## Configuration
 
