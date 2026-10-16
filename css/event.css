@@ -399,3 +399,100 @@
     color: var(--muted);
     border-radius: 20px;
 }
+
+/* Compact event form using the supplied pop-culture palette. */
+.event-page {
+    max-width: 1180px;
+    padding: 112px clamp(20px, 6vw, 84px) 64px;
+}
+.event-progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+.event-progress a { color: var(--ink); }
+.event-progress a:hover { color: var(--purple); }
+.event-heading { max-width: 780px; padding: 42px 0 48px; }
+.event-heading h1 { font-size: clamp(46px, 7vw, 78px); line-height: .94; }
+.event-heading h1 span { color: var(--pink); }
+.event-heading > p:last-child { margin-top: 18px; font-size: 15px; }
+.form-section {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 32px;
+    padding: 30px 0;
+    border-color: var(--line);
+}
+.form-label { gap: 12px; color: var(--muted); font-size: 10px; }
+.form-label span { color: var(--purple); font-weight: 800; }
+.form-fields { gap: 24px; }
+.field { gap: 8px; }
+.field label { color: var(--plum); font-size: 10px; font-weight: 700; }
+.field input, .field select, .field textarea {
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 15px;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--purple); }
+.field input::placeholder, .field textarea::placeholder { color: #9589a7; }
+.field select option { background: var(--surface); color: var(--ink); }
+.field textarea { min-height: 86px; }
+.style-options { gap: 9px; }
+.style-option span {
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+.style-option:nth-child(1) input:checked + span { background: var(--pink); border-color: var(--pink); }
+.style-option:nth-child(2) input:checked + span { background: var(--purple); border-color: var(--purple); }
+.style-option:nth-child(3) input:checked + span { background: var(--blue); border-color: var(--blue); }
+.style-option:nth-child(4) input:checked + span { background: var(--mint); border-color: var(--mint); }
+.style-option:nth-child(5) input:checked + span { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+.submit-section { padding-top: 30px; }
+.generate-button {
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 48px;
+    padding: 13px 21px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--purple);
+    color: #fff;
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+.generate-button:hover { background: var(--pink); transform: translateY(-2px); }
+.ai-modal-overlay { background: rgba(30, 16, 51, .88); color: #fff8ec; }
+.ai-hud-title { color: #fff8ec; font-size: clamp(20px, 5vw, 28px); }
+.ai-hud-mode-pill { color: #e4d7ff; border-color: rgba(255, 248, 236, .25); }
+.ai-ring-inner { border-color: var(--pink); border-top-color: transparent; }
+.ai-core-pulse { background: var(--yellow); box-shadow: 0 0 30px var(--yellow); }
+.ai-progress-bar { background: var(--pink); box-shadow: 0 0 10px var(--pink); }
+
+@media (max-width: 850px) {
+    .event-page { padding: 94px 22px 42px; }
+    .form-section { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+    .form-fields, .grid-three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .event-heading { padding: 32px 0 34px; }
+}
+@media (max-width: 520px) {
+    .event-page { padding: 86px 18px 32px; }
+    .event-heading h1 { font-size: clamp(42px, 13vw, 58px); }
+    .form-fields, .grid-three { grid-template-columns: 1fr; gap: 15px; }
+    .style-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .style-option span { text-align: center; padding: 10px 8px; }
+    .submit-section { padding-top: 22px; }
+    .generate-button { width: 100%; }
+}
