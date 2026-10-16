@@ -17,11 +17,14 @@ EventLens is a planning assistant. It does not take photographs, schedule staff,
 ```text
 EventLens/
 ├── index.html               Landing page
+├── about.html               What EventLens does
+├── process.html             Photography planning workflow
 ├── event.html               Event details form
 ├── dashboard.html           Photography plan dashboard
-├── css/                     Shared and page-specific styles
+├── css/                     Shared, page and component styles
 ├── js/
-│   ├── main.js              Landing page interactions
+│   ├── polka-dots.js        Decorative pastel background dots
+│   ├── text-type.js         Accessible heading type-on effect
 │   ├── event.js             Form submission and backend request
 │   └── dashboard.js         Plan rendering and checklist behavior
 └── backend/

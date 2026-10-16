@@ -18,10 +18,14 @@ The frontend is plain HTML, CSS, and JavaScript; it has no build step or fronten
 
 ## Pages and scripts
 
-- `index.html` and `js/main.js`: landing page and reveal/cursor effects.
+- `index.html`: minimal headline landing page.
+- `about.html` and `process.html`: standalone product overview and photography workflow pages.
 - `event.html` and `js/event.js`: event form, request state, API request, and local storage writes.
 - `dashboard.html` and `js/dashboard.js`: reads the saved event/analysis, renders the plan, filters the shot list, and updates checklist progress.
-- `css/style.css`, `css/event.css`, `css/dashboard.css`: shared and page-specific styling.
+- `js/text-type.js` and `js/polka-dots.js`: accessible heading type-on animation and decorative pastel dots.
+- `css/style.css`, `css/event.css`, `css/dashboard.css`, `css/pages.css`: shared and page-specific styling.
+
+The browser experience uses plain HTML, CSS, and JavaScript. The large-heading effect is a lightweight vanilla-JavaScript adaptation of the React Bits TextType visual treatment; the project does not require React or a frontend build step.
 
 ## `GET /health`
 
@@ -39,6 +43,10 @@ Health and configuration summary. Example fields:
 ```
 
 The endpoint never returns the API key.
+
+## Website routes
+
+The FastAPI app serves the landing page at `/`, with the About and Process pages at `/about.html` and `/process.html`. The event form and plan dashboard are served at `/event.html` and `/dashboard.html`. CSS and JavaScript files are served from `/css/` and `/js/`.
 
 ## `POST /analyze-event`
 

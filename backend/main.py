@@ -714,6 +714,16 @@ def event_page():
     return FileResponse(PROJECT_ROOT / "event.html")
 
 
+@app.get("/about.html", include_in_schema=False)
+def about_page():
+    return FileResponse(PROJECT_ROOT / "about.html")
+
+
+@app.get("/process.html", include_in_schema=False)
+def process_page():
+    return FileResponse(PROJECT_ROOT / "process.html")
+
+
 @app.get("/dashboard.html", include_in_schema=False)
 def dashboard_page():
     return FileResponse(PROJECT_ROOT / "dashboard.html")

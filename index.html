@@ -4,154 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EventLens — See the moments before they happen.</title>
+    <meta name="theme-color" content="#fff8ec">
+    <title>EventLens — See the moments before they happen</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
 </head>
 
-<body>
-
-    <div class="cursor"></div>
+<body class="landing-page">
+    <div class="polka-field" aria-hidden="true"></div>
 
     <nav class="navbar">
-        <a href="index.html" class="logo">EVENT<span>LENS</span></a>
-
+        <a href="index.html" class="logo" aria-label="EventLens home">EVENT<span>LENS</span></a>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#process" class="nav-button">Process <span aria-hidden="true">↘</span></a>
+            <a href="about.html">About</a>
+            <a href="process.html" class="nav-button">Process <span aria-hidden="true">↗</span></a>
+            <a href="event.html" class="nav-cta">Plan an event <span aria-hidden="true">↗</span></a>
         </div>
     </nav>
 
     <main>
-
-        <section class="hero">
-
-            <div class="hero-meta">
-                <span>AI EVENT PHOTOGRAPHY</span>
-                <span>01 / 03</span>
-            </div>
-
-            <div class="hero-content">
-
-                <p class="eyebrow">
-                    THE INTELLIGENT PHOTOGRAPHY PLANNER
-                </p>
-
-                <h1>
-                    SEE THE
-                    <span>MOMENTS</span>
-                    BEFORE THEY HAPPEN.
-                </h1>
-
-                <p class="hero-description">
-                    A photography game plan for the moments you can’t afford to miss.
-                    Map the run of show, divide coverage and keep every shot in reach.
-                </p>
-
-            </div>
-
-            <div class="hero-index">
-                <span>EVENTLENS</span>
-                <span>MADE FOR THE MOMENT</span>
-            </div>
-
+        <section class="hero landing-hero" aria-labelledby="landingTitle">
+            <h1 id="landingTitle" class="type-heading landing-title">
+                SEE THE<br>
+                <span class="accent-pink">MOMENTS</span><br>
+                BEFORE THEY HAPPEN.
+            </h1>
         </section>
-
-        <section class="statement" id="about">
-
-            <div class="section-label">
-                01 — THE IDEA
-            </div>
-
-            <div class="statement-content">
-
-                <h2>
-                    GREAT EVENTS CREATE
-                    <span>THOUSANDS OF MOMENTS.</span>
-                </h2>
-
-                <p>
-                    EventLens helps photographers identify the moments that
-                    matter, organize coverage, prioritize critical shots and
-                    build a complete photography plan before the event begins.
-                </p>
-
-            </div>
-
-        </section>
-
-        <section class="process" id="process">
-
-            <div class="section-label">
-                02 — THE PROCESS
-            </div>
-
-            <div class="process-list">
-
-                <div class="process-item">
-                    <span class="process-number">01</span>
-
-                    <div>
-                        <h3>DEFINE</h3>
-                        <p>Set the scene: event, venue, schedule, crew and style.</p>
-                    </div>
-                </div>
-
-                <div class="process-item">
-                    <span class="process-number">02</span>
-
-                    <div>
-                        <h3>ANALYZE</h3>
-                        <p>EventLens spots key beats, people and coverage constraints.</p>
-                    </div>
-                </div>
-
-                <div class="process-item">
-                    <span class="process-number">03</span>
-
-                    <div>
-                        <h3>PLAN</h3>
-                        <p>Get a timeline, shot list and clear photographer assignments.</p>
-                    </div>
-                </div>
-
-                <div class="process-item">
-                    <span class="process-number">04</span>
-
-                    <div>
-                        <h3>CAPTURE</h3>
-                        <p>Capture the story and tick off each shot as it happens.</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="closing">
-
-            <p>ONE PLAN. EVERY MOMENT.</p>
-
-            <h2>
-                LET'S PLAN<br>
-                <span>THE MOMENTS.</span>
-            </h2>
-
-            <a href="event.html" class="hero-button">
-                <span>START EVENTLENS</span>
-                <span class="arrow">↗</span>
-            </a>
-
-        </section>
-
     </main>
 
-    <footer>
-        <span>EVENTLENS</span>
-        <span>AI × PHOTOGRAPHY</span>
-        <span>2026</span>
-    </footer>
-
-    <script src="js/main.js"></script>
+    <script src="js/polka-dots.js" defer></script>
+    <script src="js/text-type.js" defer></script>
 </body>
 
 </html>
