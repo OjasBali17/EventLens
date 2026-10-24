@@ -211,7 +211,7 @@ html.has-scroll-reveal .landing-reveal.is-visible { opacity: 1; transform: trans
 @media (max-width: 700px) {
     .landing-hero { min-height: 94svh; padding: 100px 20px 84px; }
     .landing-title { font-size: clamp(42px, 12.5vw, 68px); }
-    .landing-viewfinder { top: 21%; right: 5%; width: min(60vw, 290px); opacity: .55; }
+    .landing-viewfinder { top: 34%; right: 10%; width: min(69vw, 270px); opacity: .55; }
     .landing-film-mark--one { top: 19%; right: 5%; }
     .landing-film-mark--two { right: 8%; bottom: 18%; }
     .landing-scroll-cue { bottom: 25px; left: 20px; font-size: 8px; }
@@ -222,7 +222,7 @@ html.has-scroll-reveal .landing-reveal.is-visible { opacity: 1; transform: trans
     .camera-orbit--two { width: 78%; }
 }
 @media (max-width: 390px) {
-    .landing-viewfinder { width: 58vw; top: 23%; }
+    .landing-viewfinder { width: min(68vw, 260px); top: 34%; }
     .landing-camera { min-height: 230px; }
 }
 @media (prefers-reduced-motion: reduce) {
