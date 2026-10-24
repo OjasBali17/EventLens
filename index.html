@@ -23,7 +23,25 @@
 
     <main>
         <section class="hero landing-hero" aria-labelledby="landingTitle">
-            <span class="landing-color-wheel" aria-hidden="true"><i></i></span>
+            <div class="landing-photo-stack" aria-hidden="true">
+                <span class="photo-stack-card photo-stack-card--back"></span>
+                <span class="photo-stack-card photo-stack-card--middle"></span>
+                <span class="photo-stack-card photo-stack-card--front">
+                    <span class="photo-stack-art">
+                        <svg viewBox="0 0 400 460" role="presentation" xmlns="http://www.w3.org/2000/svg">
+                            <defs><linearGradient id="heroSceneGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7b3ff2"/><stop offset=".53" stop-color="#ff4f9a"/><stop offset="1" stop-color="#ffc933"/></linearGradient></defs>
+                            <rect width="400" height="460" fill="url(#heroSceneGradient)"/>
+                            <circle cx="302" cy="102" r="62" fill="#ffc933"/>
+                            <path d="M52 0h72l126 370h-52zm270 0h52L246 370h-46z" fill="#fff8ec" opacity=".32"/>
+                            <path d="M0 333q63-43 118-2t101-3q65-43 109-1t72-2v135H0z" fill="#251335"/>
+                            <g fill="#171020"><path d="M12 460V354q0-22 21-22t21 22v106zm57 0V388q0-20 20-20t20 20v72zm74 0V344q0-25 24-25t24 25v116zm84 0V380q0-21 21-21t21 21v80zm77 0V350q0-25 24-25t24 25v110z"/></g>
+                            <g fill="#fff8ec"><path d="m79 92 6 14 15 6-15 6-6 15-6-15-14-6 14-6z"/><path d="m223 180 4 10 11 4-11 4-4 11-4-11-10-4 10-4z"/><circle cx="123" cy="201" r="5"/><circle cx="353" cy="255" r="6"/></g>
+                        </svg>
+                    </span>
+                    <span class="photo-stack-caption">ONE ROOM. A THOUSAND MOMENTS.</span>
+                </span>
+                <span class="photo-stack-flash">✳</span>
+            </div>
             <span class="landing-stamp" aria-hidden="true">MOMENTS<br>IN FULL COLOR</span>
             <h1 id="landingTitle" class="landing-title">
                 SEE THE<br>
@@ -41,7 +59,7 @@
                 <span class="polaroid-kicker"><i aria-hidden="true"></i> YOUR NEXT FAVORITE FRAME</span>
                 <h2 id="nextFrameTitle">The best bits<br>happen <span>in a flash.</span></h2>
                 <p>One second: the whole room is waiting.<br>The next: everyone has a story to tell.</p>
-                <span class="scroll-instruction">KEEP SCROLLING <b aria-hidden="true">↓</b></span>
+                <span class="scroll-instruction" id="scrollInstruction">KEEP SCROLLING <b aria-hidden="true">↓</b></span>
             </div>
 
             <div class="polaroid-stage landing-reveal" aria-label="A camera takes a picture as you scroll">
