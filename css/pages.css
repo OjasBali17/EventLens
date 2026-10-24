@@ -322,3 +322,44 @@ html.has-scroll-reveal .landing-reveal.is-visible { opacity: 1; transform: trans
 @media (max-width: 600px) {
     .checklist-standalone { padding: 14px; }
 }
+
+/* Shared About and Process styling for the EventLens pop-culture palette. */
+.editorial-page .info-page > .eyebrow { display: inline-flex; padding: 8px 10px; border: 1px solid var(--ink); background: var(--yellow); color: var(--ink); font: 900 9px/1 "DM Mono", monospace; letter-spacing: .12em; }
+.editorial-page .info-title { max-width: 920px; margin-top: 14px; color: var(--ink); font-size: clamp(42px, 6.8vw, 82px); }
+.editorial-page .info-lede { max-width: 650px; border: 1px solid var(--ink); border-left: 6px solid var(--mint); border-radius: 0 13px 13px 0; background: #fffdf7; box-shadow: 4px 4px 0 rgba(30,16,51,.1); color: var(--ink); }
+.editorial-page .info-grid { margin-top: 38px; }
+.editorial-page .info-card { min-height: 240px; border: 1px solid var(--ink); background: #fffdf7; box-shadow: 5px 6px 0 var(--ink); transition: transform .25s ease, box-shadow .25s ease; }
+.editorial-page .info-card:nth-child(2) { background: #f8e5f0; }
+.editorial-page .info-card:nth-child(3) { background: #e8f6ff; }
+.editorial-page .info-card:hover { transform: translateY(-4px) rotate(-.5deg); box-shadow: 8px 10px 0 var(--ink); }
+.editorial-page .card-index { position: relative; z-index: 1; color: var(--plum); font-size: 9px; font-weight: 900; }
+.editorial-page .info-card h2 { position: relative; z-index: 1; }
+.editorial-page .info-card p { position: relative; z-index: 1; border-color: rgba(30,16,51,.16); background: rgba(255,253,247,.96); }
+.editorial-page .workflow-list { display: grid; gap: 12px; margin-top: 36px; border: 0; }
+.editorial-page .workflow-step { min-height: 116px; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 16px; padding: 18px 20px; border: 1px solid var(--ink); border-radius: 13px; box-shadow: 4px 5px 0 var(--ink); transition: transform .22s ease, box-shadow .22s ease; }
+.editorial-page .workflow-step:hover { transform: translateY(-3px); box-shadow: 7px 8px 0 var(--ink); }
+.editorial-page .workflow-step:nth-child(odd) { background: #fffdf7; }
+.editorial-page .workflow-step:nth-child(even) { background: #f7efff; }
+.editorial-page .workflow-step:nth-child(1) { border-left: 7px solid var(--yellow); }
+.editorial-page .workflow-step:nth-child(2) { border-left: 7px solid var(--pink); }
+.editorial-page .workflow-step:nth-child(3) { border-left: 7px solid var(--blue); }
+.editorial-page .workflow-step:nth-child(4) { border-left: 7px solid var(--mint); }
+.editorial-page .workflow-number { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid var(--ink); border-radius: 50%; background: var(--yellow); color: var(--ink); font: 900 11px/1 "DM Mono", monospace; }
+.editorial-page .workflow-step:nth-child(2) .workflow-number { background: #ffc3dc; }
+.editorial-page .workflow-step:nth-child(3) .workflow-number { background: #bfeaff; }
+.editorial-page .workflow-step:nth-child(4) .workflow-number { background: #a9ead5; }
+.editorial-page .workflow-step h2 { color: var(--ink); }
+.editorial-page .workflow-step p { max-width: 650px; border-color: rgba(30,16,51,.15); background: rgba(255,253,247,.96); }
+.editorial-page .workflow-tag { padding: 8px 10px; border: 1px solid var(--ink); border-radius: 999px; background: var(--yellow); color: var(--ink); font-size: 8px; font-weight: 900; white-space: nowrap; }
+.editorial-page .workflow-step:nth-child(2) .workflow-tag { background: #ffc3dc; }
+.editorial-page .workflow-step:nth-child(3) .workflow-tag { background: #bfeaff; }
+.editorial-page .workflow-step:nth-child(4) .workflow-tag { background: #a9ead5; }
+.editorial-page .info-note { border: 1px solid var(--line); background: #fffdf7; color: var(--plum); }
+@media (max-width: 700px) {
+    .editorial-page .info-grid { margin-top: 25px; }
+    .editorial-page .info-card { min-height: 0; }
+    .editorial-page .workflow-list { margin-top: 24px; }
+    .editorial-page .workflow-step { grid-template-columns: 38px minmax(0,1fr); gap: 11px; padding: 15px 12px; }
+    .editorial-page .workflow-number { width: 32px; height: 32px; }
+    .editorial-page .workflow-tag { grid-column: 2; justify-self: start; }
+}

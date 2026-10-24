@@ -8,11 +8,17 @@ if (!eventData || !analysisData?.analysis?.shots) {
     const checklist = document.getElementById("liveChecklist");
     const progressLabel = document.getElementById("completionPercent");
     const progressBar = document.getElementById("completionBar");
-    const storageKey = `eventLensChecklist:${eventData.name}:${eventData.date || "undated"}`;
+    let runId = localStorage.getItem("eventLensAnalysisRunId");
+    if (!runId) {
+        runId = `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+        localStorage.setItem("eventLensAnalysisRunId", runId);
+    }
+    const storageKey = `eventLensChecklist:${runId}`;
     let checked = {};
     try { checked = JSON.parse(localStorage.getItem(storageKey) || "{}"); } catch { checked = {}; }
 
-    document.getElementById("checklistEvent").textContent = `${eventData.name} · Check off each moment as your team captures it.`;
+    const eventDetails = [eventData.name, eventData.type, eventData.venue].filter(Boolean).join(" · ");
+    document.getElementById("checklistEvent").textContent = `${eventDetails} · ${shots.length} priority shots for your team.`;
 
     function updateProgress() {
         const total = shots.length;
@@ -25,9 +31,11 @@ if (!eventData || !analysisData?.analysis?.shots) {
 
     shots.forEach((shot, index) => {
         const key = String(index);
+        const priority = String(shot.priority || "MEDIUM").toUpperCase();
+        const priorityClass = ["CRITICAL", "HIGH", "MEDIUM"].includes(priority) ? priority.toLowerCase() : "medium";
         const row = document.createElement("div");
-        row.className = `live-item${checked[key] ? " done" : ""}`;
-        row.innerHTML = `<span>${escapeHtml(shot.number ?? index + 1)}</span><div><strong>${escapeHtml(shot.name)}</strong><small>${escapeHtml(shot.priority)}</small></div><button type="button" aria-label="Mark ${escapeHtml(shot.name)} complete" aria-pressed="${Boolean(checked[key])}">${checked[key] ? "✓" : "○"}</button>`;
+        row.className = `live-item live-item--${priorityClass}${checked[key] ? " done" : ""}`;
+        row.innerHTML = `<span class="live-item-number">${escapeHtml(shot.number ?? index + 1)}</span><div class="live-item-copy"><strong>${escapeHtml(shot.name)}</strong><div class="live-item-meta"><small>${escapeHtml(shot.category || "SHOT")}</small><span class="importance-pill importance-pill--${priorityClass}">${escapeHtml(priority)} PRIORITY</span></div></div><button type="button" aria-label="Mark ${escapeHtml(shot.name)} complete" aria-pressed="${Boolean(checked[key])}">${checked[key] ? "✓" : "○"}</button>`;
         row.querySelector("button").addEventListener("click", (event) => {
             checked[key] = !checked[key];
             row.classList.toggle("done", checked[key]);
