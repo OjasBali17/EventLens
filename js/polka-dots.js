@@ -6,7 +6,9 @@
     fields.forEach((field) => {
         if (field.dataset.ready) return;
         field.dataset.ready = "true";
-        const count = window.matchMedia("(max-width: 700px)").matches ? 22 : 38;
+        const isMobile = window.matchMedia("(max-width: 700px)").matches;
+        const isLanding = document.body.classList.contains("landing-page");
+        const count = isLanding ? (isMobile ? 16 : 27) : (isMobile ? 22 : 38);
 
         for (let index = 0; index < count; index += 1) {
             const dot = document.createElement("span");

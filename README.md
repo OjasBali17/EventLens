@@ -26,6 +26,7 @@ EventLens/
 ├── js/
 │   ├── polka-dots.js        Decorative pastel background dots
 │   ├── text-type.js         Accessible heading type-on effect
+│   ├── landing-effects.js   Landing-page camera and scroll reveals
 │   ├── event.js             Form submission and backend request
 │   ├── dashboard.js         Photography plan rendering
 │   └── checklist.js         Persistent live checklist behavior

@@ -24,16 +24,55 @@
 
     <main>
         <section class="hero landing-hero" aria-labelledby="landingTitle">
+            <span class="landing-flash" aria-hidden="true"></span>
+            <div class="landing-viewfinder" aria-hidden="true">
+                <span class="finder-corner finder-corner--tl"></span>
+                <span class="finder-corner finder-corner--tr"></span>
+                <span class="finder-corner finder-corner--bl"></span>
+                <span class="finder-corner finder-corner--br"></span>
+                <span class="finder-reticle"></span>
+                <span class="finder-readout">EL&nbsp; / &nbsp;01</span>
+            </div>
+            <span class="landing-film-mark landing-film-mark--one" aria-hidden="true">F&nbsp; 01</span>
             <h1 id="landingTitle" class="type-heading landing-title">
                 SEE THE<br>
                 <span class="accent-pink">MOMENTS</span><br>
                 BEFORE THEY HAPPEN.
             </h1>
+            <a class="landing-scroll-cue" href="#next-frame">
+                <span>SCROLL TO FRAME</span><i aria-hidden="true"></i>
+            </a>
+        </section>
+
+        <section id="next-frame" class="landing-next-frame" aria-labelledby="nextFrameTitle">
+            <div class="landing-next-copy landing-reveal">
+                <span class="landing-frame-label">FRAME 02 <i aria-hidden="true"></i> READY WHEN YOU ARE</span>
+                <h2 id="nextFrameTitle">Make room for<br><span>the moment.</span></h2>
+                <a href="event.html" class="landing-shutter-button">
+                    <span class="shutter-icon" aria-hidden="true"></span>
+                    <span>Plan an event</span>
+                    <span class="shutter-arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+
+            <div class="landing-camera landing-reveal" aria-hidden="true">
+                <span class="camera-orbit camera-orbit--one"></span>
+                <span class="camera-orbit camera-orbit--two"></span>
+                <span class="camera-glint"></span>
+                <div class="camera-body">
+                    <span class="camera-top"></span>
+                    <span class="camera-flash-window"></span>
+                    <span class="camera-lens"><i></i></span>
+                    <span class="camera-dial"></span>
+                    <span class="camera-mark">EL&nbsp; / &nbsp;01</span>
+                </div>
+            </div>
         </section>
     </main>
 
     <script src="js/polka-dots.js" defer></script>
     <script src="js/text-type.js" defer></script>
+    <script src="js/landing-effects.js" defer></script>
 </body>
 
 </html>
