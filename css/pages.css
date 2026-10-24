@@ -143,7 +143,7 @@ body > nav, body > main, body > footer { position: relative; z-index: 1; }
     min-height: 78svh;
     padding: clamp(74px, 10vw, 130px) clamp(22px, 9vw, 140px);
     display: grid;
-    grid-template-columns: minmax(0, .88fr) minmax(300px, 1fr);
+    grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr);
     align-items: center;
     gap: clamp(24px, 7vw, 100px);
     overflow: hidden;
@@ -153,7 +153,7 @@ body > nav, body > main, body > footer { position: relative; z-index: 1; }
 .landing-next-copy { position: relative; z-index: 2; }
 .landing-frame-label { display: inline-flex; align-items: center; gap: 10px; color: var(--plum); font: 700 9px/1.4 "DM Mono", monospace; letter-spacing: .12em; }
 .landing-frame-label i { width: 5px; height: 5px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px rgba(34, 201, 154, .14); }
-.landing-next-copy h2 { margin-top: 22px; color: var(--ink); font-size: clamp(42px, 6vw, 78px); line-height: .94; letter-spacing: -.075em; }
+.landing-next-copy h2 { margin-top: 22px; color: var(--ink); font-size: clamp(40px, 5.6vw, 72px); line-height: .94; letter-spacing: -.075em; }
 .landing-next-copy h2 span { color: var(--pink); }
 .landing-shutter-button {
     display: inline-flex;
