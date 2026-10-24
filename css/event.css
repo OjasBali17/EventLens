@@ -504,6 +504,7 @@
 .event-heading h1 span { color: var(--pink); }
 .event-heading-copy > p:not(.eyebrow) { max-width: 470px; margin-top: 22px; padding: 11px 14px; border-left: 5px solid var(--mint); background: #fffdf7; color: var(--ink); font-size: 16px; font-weight: 750; line-height: 1.6; }
 .event-heading-note { display: flex; align-items: center; gap: 12px; max-width: 400px; margin-top: 23px; color: var(--plum); font-size: 12px; font-weight: 800; }
+.event-heading-note span { padding: 8px 10px; background: #fffdf7; color: var(--ink); line-height: 1.45; }
 .event-heading-note b { flex: 0 0 auto; padding: 7px 9px; background: var(--pink); color: var(--ink); font: 900 10px/1 "DM Mono", monospace; }
 .event-heading-visual { position: relative; width: min(100%, 410px); margin: 0 auto; aspect-ratio: 1.03; display: grid; place-items: center; }
 .event-snapshot { position: relative; z-index: 1; width: 80%; padding: 10px 10px 18px; border: 2px solid var(--ink); background: #fffdf7; box-shadow: 10px 12px 0 var(--ink); transform: rotate(4deg); }
