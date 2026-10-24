@@ -48,187 +48,94 @@ body > nav, body > main, body > footer { position: relative; z-index: 1; }
 }
 .landing-title .accent-pink { color: var(--pink); }
 
-/* Landing page: a little camera theatre, with plenty of open space. */
-.landing-page .polka-dot {
-    border: 1px solid rgba(255, 255, 255, .5);
-    background: radial-gradient(circle at 30% 24%, rgba(255, 255, 255, .92), color-mix(in srgb, var(--dot-color) 62%, transparent) 38%, rgba(255, 255, 255, .12));
-    box-shadow: inset 0 2px 9px rgba(255, 255, 255, .52), 0 12px 28px rgba(59, 26, 140, .09);
-    backdrop-filter: blur(8px);
-    opacity: .5;
-}
-.landing-page .polka-dot:nth-child(3n) {
-    background: radial-gradient(circle at 30% 24%, rgba(255, 255, 255, .8), color-mix(in srgb, var(--dot-color) 34%, transparent) 50%, rgba(255, 255, 255, .08));
-    border-color: rgba(255, 255, 255, .7);
-    opacity: .42;
-}
-.landing-hero { position: relative; overflow: hidden; isolation: isolate; }
-.landing-title { max-width: 1080px; }
-.landing-flash {
-    position: absolute;
-    z-index: 1;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    background: radial-gradient(ellipse at 76% 42%, rgba(255, 255, 255, .72), rgba(255, 255, 255, .18) 19%, transparent 48%);
-    mix-blend-mode: screen;
-    animation: landing-flash-pop 13s ease-in-out 2.2s infinite;
-}
-@keyframes landing-flash-pop {
-    0%, 25%, 100% { opacity: 0; }
-    26% { opacity: .68; }
-    27% { opacity: .08; }
-    28% { opacity: .3; }
-    30% { opacity: 0; }
-}
-.landing-viewfinder {
-    position: absolute;
-    z-index: 1;
-    top: 18%;
-    right: clamp(30px, 9vw, 140px);
-    width: clamp(210px, 31vw, 430px);
-    aspect-ratio: .84;
-    border: 1px solid rgba(255, 255, 255, .68);
-    border-radius: 42% 42% 34% 34%;
-    background: linear-gradient(145deg, rgba(255, 255, 255, .24), rgba(255, 255, 255, .035) 54%, rgba(255, 79, 154, .08));
-    box-shadow: inset 0 1px 24px rgba(255, 255, 255, .3), 0 22px 66px rgba(59, 26, 140, .08);
-    backdrop-filter: blur(5px);
-    opacity: .78;
-    pointer-events: none;
-}
-.landing-viewfinder::before, .landing-viewfinder::after {
-    content: "";
-    position: absolute;
-    inset: 13%;
-    border: 1px solid rgba(59, 26, 140, .14);
-    border-radius: 50%;
-}
-.landing-viewfinder::after { inset: 23%; border-color: rgba(255, 255, 255, .72); }
-.finder-corner { position: absolute; width: 19px; height: 19px; border-color: rgba(59, 26, 140, .62); border-style: solid; }
-.finder-corner--tl { top: 22px; left: 22px; border-width: 1px 0 0 1px; }
-.finder-corner--tr { top: 22px; right: 22px; border-width: 1px 1px 0 0; }
-.finder-corner--bl { bottom: 22px; left: 22px; border-width: 0 0 1px 1px; }
-.finder-corner--br { right: 22px; bottom: 22px; border-width: 0 1px 1px 0; }
-.finder-reticle { position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; border: 1px solid rgba(59, 26, 140, .62); border-radius: 50%; transform: translate(-50%, -50%); }
-.finder-readout { position: absolute; right: 24px; bottom: 27px; color: var(--plum); font: 700 9px/1 "DM Mono", monospace; letter-spacing: .12em; }
-.landing-film-mark {
-    position: absolute;
-    z-index: 4;
-    padding: 8px 11px;
-    border: 1px solid rgba(255, 255, 255, .7);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, .42);
-    box-shadow: 0 8px 22px rgba(59, 26, 140, .09);
-    backdrop-filter: blur(12px);
-    color: var(--plum);
-    font: 700 9px/1 "DM Mono", monospace;
-    letter-spacing: .08em;
-}
-.landing-film-mark--one { top: 23%; right: 6%; transform: rotate(7deg); }
-.landing-scroll-cue {
-    position: absolute;
-    z-index: 4;
-    left: clamp(20px, 8vw, 120px);
-    bottom: 30px;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--plum);
-    font: 700 9px/1 "DM Mono", monospace;
-    letter-spacing: .14em;
-}
-.landing-scroll-cue i { position: relative; display: block; width: 38px; height: 1px; background: var(--purple); }
-.landing-scroll-cue i::after { content: ""; position: absolute; top: -3px; right: 0; width: 7px; height: 7px; border-top: 1px solid var(--purple); border-right: 1px solid var(--purple); transform: rotate(45deg); }
-.landing-next-frame {
-    position: relative;
-    min-height: 78svh;
-    padding: clamp(74px, 10vw, 130px) clamp(22px, 9vw, 140px);
-    display: grid;
-    grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr);
-    align-items: center;
-    gap: clamp(24px, 7vw, 100px);
-    overflow: hidden;
-    border-top: 1px solid var(--line);
-    background: linear-gradient(135deg, rgba(237, 228, 255, .78), rgba(255, 248, 236, .96) 68%);
-}
-.landing-next-copy { position: relative; z-index: 2; }
-.landing-frame-label { display: inline-flex; align-items: center; gap: 10px; color: var(--plum); font: 700 9px/1.4 "DM Mono", monospace; letter-spacing: .12em; }
-.landing-frame-label i { width: 5px; height: 5px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px rgba(34, 201, 154, .14); }
-.landing-next-copy h2 { margin-top: 22px; color: var(--ink); font-size: clamp(40px, 5.6vw, 72px); line-height: .94; letter-spacing: -.075em; }
-.landing-next-copy h2 span { color: var(--pink); }
-.landing-shutter-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 13px;
-    margin-top: 34px;
-    padding: 9px 18px 9px 10px;
-    border: 1px solid rgba(59, 26, 140, .22);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, .68);
-    box-shadow: 0 12px 32px rgba(59, 26, 140, .09), inset 0 1px rgba(255, 255, 255, .85);
-    backdrop-filter: blur(16px);
-    color: var(--ink);
-    font-size: 13px;
-    font-weight: 800;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-}
-.landing-shutter-button:hover { transform: translateY(-3px); background: rgba(255, 255, 255, .9); box-shadow: 0 18px 36px rgba(59, 26, 140, .14); }
-.shutter-icon { position: relative; width: 34px; height: 34px; border: 1px solid rgba(59, 26, 140, .35); border-radius: 50%; background: conic-gradient(from 10deg, var(--pink) 0 16%, transparent 16% 20%, var(--yellow) 20% 36%, transparent 36% 40%, var(--blue) 40% 56%, transparent 56% 60%, var(--mint) 60% 76%, transparent 76% 80%, var(--purple) 80% 96%, transparent 96%); box-shadow: inset 0 0 0 7px rgba(255, 255, 255, .76); }
-.shutter-icon::after { content: ""; position: absolute; inset: 11px; border-radius: 50%; background: var(--obsidian); }
-.shutter-arrow { margin-left: 8px; color: var(--purple); font-size: 17px; }
-.landing-camera { position: relative; z-index: 1; display: grid; place-items: center; min-height: 340px; perspective: 900px; }
-.camera-body {
-    position: relative;
-    width: min(100%, 430px);
-    aspect-ratio: 1.34;
-    border: 1px solid rgba(255, 255, 255, .92);
-    border-radius: 26px;
-    background: linear-gradient(145deg, rgba(255, 255, 255, .84), rgba(255, 255, 255, .44) 52%, rgba(237, 228, 255, .72));
-    box-shadow: 0 26px 70px rgba(59, 26, 140, .14), inset 0 2px 14px white;
-    backdrop-filter: blur(18px);
-    transform: rotate(-5deg);
-    transition: transform .8s cubic-bezier(.2, .8, .2, 1);
-}
-.landing-camera.is-visible .camera-body { transform: rotate(0); }
-.camera-body::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(59, 26, 140, .14); border-radius: 17px; }
-.camera-top { position: absolute; top: -17px; left: 15%; width: 31%; height: 23px; border: 1px solid rgba(255, 255, 255, .82); border-bottom: 0; border-radius: 10px 10px 0 0; background: linear-gradient(135deg, rgba(255, 255, 255, .74), rgba(237, 228, 255, .54)); }
-.camera-flash-window { position: absolute; top: 25px; right: 26%; width: 30px; height: 18px; border: 1px solid rgba(59, 26, 140, .12); border-radius: 6px; background: linear-gradient(135deg, rgba(255, 255, 255, .9), rgba(255, 201, 51, .52)); box-shadow: 0 0 24px rgba(255, 255, 255, .62); }
-.camera-lens { position: absolute; top: 50%; left: 50%; width: 56%; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, .94); border-radius: 50%; background: radial-gradient(circle, rgba(61, 185, 255, .15), rgba(123, 63, 242, .1) 48%, rgba(255, 79, 154, .1) 72%, rgba(255, 255, 255, .45)); box-shadow: 0 12px 32px rgba(59, 26, 140, .12), inset 0 0 22px rgba(255, 255, 255, .85); transform: translate(-50%, -47%); }
-.camera-lens::before, .camera-lens::after, .camera-lens i { content: ""; position: absolute; border: 1px solid rgba(59, 26, 140, .22); border-radius: 50%; }
-.camera-lens::before { inset: 10%; }
-.camera-lens::after { inset: 23%; border-color: rgba(255, 79, 154, .34); }
-.camera-lens i { inset: 37%; background: radial-gradient(circle at 35% 30%, white, rgba(61, 185, 255, .38) 38%, rgba(59, 26, 140, .2)); }
-.camera-dial { position: absolute; right: 19px; bottom: 25px; width: 25px; height: 25px; border: 1px solid rgba(59, 26, 140, .3); border-radius: 50%; background: repeating-conic-gradient(rgba(59, 26, 140, .22) 0 5deg, transparent 5deg 12deg); }
-.camera-mark { position: absolute; left: 27px; bottom: 30px; color: var(--plum); font: 700 8px/1 "DM Mono", monospace; letter-spacing: .12em; }
-.camera-orbit { position: absolute; width: 70%; aspect-ratio: 1; border: 1px solid rgba(255, 255, 255, .72); border-radius: 50%; background: rgba(255, 255, 255, .12); backdrop-filter: blur(6px); }
-.camera-orbit--one { transform: translate(3%, -4%); }
-.camera-orbit--two { width: 88%; border-style: dashed; opacity: .5; transform: rotate(-22deg); }
-.camera-glint { position: absolute; z-index: 3; top: 13%; right: 15%; width: 14px; height: 14px; border-radius: 50%; background: white; box-shadow: 0 0 20px 8px rgba(255, 255, 255, .76); animation: camera-glint 4s ease-in-out infinite; }
-@keyframes camera-glint { 0%, 100% { opacity: .36; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.15); } }
+/* Landing page: bold print-shop colors and a real instant-camera moment. */
+.landing-hero { position: relative; min-height: 100svh; padding: 112px clamp(22px, 8vw, 120px) 100px; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background: transparent; }
+.landing-hero::before { display: none; }
+.landing-title { position: relative; z-index: 2; max-width: 940px; font-size: clamp(56px, 8vw, 108px); line-height: .88; letter-spacing: -.08em; font-weight: 900; }
+.landing-title .accent-pink { color: var(--pink); }
+.landing-subcopy { position: relative; z-index: 2; max-width: 460px; margin-top: 24px; padding: 10px 14px; border-left: 5px solid var(--yellow); background: var(--obsidian); color: var(--ink); font-size: clamp(15px, 1.7vw, 19px); font-weight: 750; line-height: 1.55; }
+.landing-color-wheel { position: absolute; z-index: 0; width: clamp(290px, 40vw, 570px); aspect-ratio: 1; right: clamp(-65px, 4vw, 74px); top: 50%; transform: translateY(-50%) rotate(-12deg); border-radius: 50%; background: conic-gradient(var(--pink) 0 24%, var(--yellow) 24% 46%, var(--mint) 46% 67%, var(--blue) 67% 83%, var(--purple) 83% 100%); border: 12px solid var(--ink); box-shadow: 14px 16px 0 var(--ink); }
+.landing-color-wheel::before { content: ""; position: absolute; inset: 15%; border: 8px solid var(--ink); border-radius: 50%; background: var(--obsidian); }
+.landing-color-wheel::after { content: ""; position: absolute; inset: 34%; border-radius: 50%; background: conic-gradient(var(--yellow) 0 25%, var(--pink) 25% 50%, var(--blue) 50% 75%, var(--mint) 75%); border: 8px solid var(--ink); }
+.landing-color-wheel i { position: absolute; z-index: 1; inset: 46%; border-radius: 50%; background: var(--ink); }
+.landing-stamp { position: absolute; z-index: 3; top: 22%; right: 9%; display: grid; place-items: center; width: 102px; aspect-ratio: 1; border: 3px solid var(--ink); border-radius: 50%; background: var(--yellow); color: var(--ink); text-align: center; font: 900 11px/1.35 "DM Mono", monospace; transform: rotate(10deg); }
+.landing-scroll-cue { position: absolute; z-index: 4; left: clamp(22px, 8vw, 120px); bottom: 30px; display: inline-flex; align-items: center; gap: 12px; color: var(--plum); font: 800 10px/1 "DM Mono", monospace; letter-spacing: .12em; }
+.landing-scroll-cue i { position: relative; display: block; width: 38px; height: 2px; background: var(--purple); }
+.landing-scroll-cue i::after { content: ""; position: absolute; top: -3px; right: 0; width: 7px; height: 7px; border-top: 2px solid var(--purple); border-right: 2px solid var(--purple); transform: rotate(45deg); }
+.polaroid-experience { position: relative; min-height: 100svh; padding: 92px clamp(22px, 7vw, 110px); display: grid; grid-template-columns: minmax(260px, .78fr) minmax(450px, 1.22fr); align-items: center; gap: clamp(28px, 5vw, 80px); overflow: hidden; background: var(--plum); color: var(--obsidian); }
+.polaroid-experience::before { content: ""; position: absolute; width: 430px; aspect-ratio: 1; right: -100px; bottom: -230px; border-radius: 50%; background: var(--pink); }
+.polaroid-copy { position: relative; z-index: 2; max-width: 440px; }
+.polaroid-kicker { display: inline-flex; align-items: center; gap: 9px; color: var(--yellow); font: 800 10px/1.4 "DM Mono", monospace; letter-spacing: .12em; }
+.polaroid-kicker i { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
+.polaroid-copy h2 { margin-top: 24px; color: var(--obsidian); font-size: clamp(42px, 5.5vw, 74px); line-height: .94; letter-spacing: -.075em; }
+.polaroid-copy h2 span { color: var(--yellow); }
+.polaroid-copy p { max-width: 390px; margin-top: 22px; padding: 10px 14px; border-left: 4px solid var(--mint); background: #fff8ec; color: #28143d; font-size: 16px; font-weight: 750; line-height: 1.65; }
+.scroll-instruction { display: block; margin-top: 40px; color: #fff8ec; font: 800 10px/1 "DM Mono", monospace; letter-spacing: .13em; }
+.scroll-instruction b { display: inline-block; margin-left: 9px; color: var(--yellow); font-size: 18px; }
+.polaroid-stage { position: relative; z-index: 1; min-height: 680px; display: grid; place-items: center; isolation: isolate; }
+.polaroid-camera { position: absolute; z-index: 2; top: 34px; left: 50%; width: min(100%, 570px); height: auto; overflow: visible; transform: translateX(-50%) rotate(-2deg); transform-origin: center; transition: transform .35s ease; }
+.polaroid-experience.is-shot .polaroid-camera { animation: camera-click .38s ease-out; }
+.camera-flash-glass { transition: filter .18s ease; }
+.polaroid-experience.is-shot .camera-flash-glass { filter: brightness(2.2) drop-shadow(0 0 12px #fff); }
+.camera-shutter { transform-box: fill-box; transform-origin: center; }
+.polaroid-experience.is-shot .camera-shutter { animation: shutter-blink .3s ease-out; }
+.camera-flash-burst { position: absolute; z-index: 4; top: 26%; left: 40%; width: 230px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 3%, #fff8c9 9%, rgba(255,201,51,.82) 20%, rgba(255,79,154,.3) 40%, transparent 70%); opacity: 0; pointer-events: none; }
+.polaroid-experience.is-shot .camera-flash-burst { animation: flash-pop .72s ease-out; }
+.camera-action-label { position: absolute; z-index: 4; top: 10px; right: 4%; padding: 10px 13px; border: 2px solid var(--ink); background: var(--yellow); color: var(--ink); font: 900 10px/1 "DM Mono", monospace; letter-spacing: .09em; transform: rotate(3deg); }
+.camera-spark { position: absolute; z-index: 4; top: 16%; right: 13%; color: var(--yellow); font-size: 48px; opacity: 0; }
+.polaroid-experience.is-shot .camera-spark { animation: spark-pop .7s .04s ease-out both; }
+.instant-print { position: absolute; z-index: 3; top: 30%; left: 50%; width: clamp(235px, 27vw, 305px); margin: 0; padding: 12px 12px 16px; background: #fffdf7; color: #21132d; box-shadow: 0 18px 35px rgba(12, 5, 25, .35); opacity: 0; transform: translate(-50%, -20px) rotate(2deg) scale(.94); }
+.polaroid-experience.is-shot .instant-print { animation: print-eject 1.05s .18s cubic-bezier(.2,.8,.2,1) both; }
+.print-art { width: 100%; aspect-ratio: 600/520; overflow: hidden; background: #452167; }
+.print-art svg { display: block; width: 100%; height: 100%; }
+.print-caption { display: grid; gap: 10px; padding: 13px 4px 0; text-align: center; }
+.print-caption > span { font: 900 9px/1 "DM Mono", monospace; letter-spacing: .09em; }
+.print-plan-button { display: inline-flex; justify-content: center; align-items: center; gap: 12px; min-height: 42px; padding: 10px 14px; border: 2px solid #21132d; background: var(--pink); color: #21132d; font-size: 13px; font-weight: 900; }
+.print-plan-button:hover { background: var(--yellow); }
+@keyframes camera-click { 0%,100% { transform: translateX(-50%) rotate(-2deg); } 24% { transform: translateX(-50%) rotate(2deg) scale(.985); } 48% { transform: translateX(-50%) rotate(-3deg) scale(1.01); } }
+@keyframes shutter-blink { 0%,100% { opacity: 1; } 35% { opacity: .08; } }
+@keyframes flash-pop { 0% { opacity: 0; transform: scale(.35); } 16% { opacity: 1; transform: scale(1.25); } 36% { opacity: .35; } 100% { opacity: 0; transform: scale(1.8); } }
+@keyframes spark-pop { 0% { opacity: 0; transform: scale(.2) rotate(-35deg); } 35% { opacity: 1; transform: scale(1.2) rotate(10deg); } 100% { opacity: 0; transform: scale(.9) rotate(30deg); } }
+@keyframes print-eject { 0% { opacity: 0; transform: translate(-50%, -35px) rotate(0) scale(.88); } 65% { opacity: 1; transform: translate(-50%, 120px) rotate(5deg) scale(1); } 82% { transform: translate(-50%, 108px) rotate(1deg) scale(1); } 100% { opacity: 1; transform: translate(-50%, 115px) rotate(2deg) scale(1); } }
 html.has-scroll-reveal .landing-reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s ease, transform .85s cubic-bezier(.2, .8, .2, 1); }
 html.has-scroll-reveal .landing-reveal.is-visible { opacity: 1; transform: translateY(0); }
-.landing-camera.landing-reveal { transition-delay: .12s; }
-.landing-next-frame::before { content: ""; position: absolute; top: -140px; right: -120px; width: 360px; aspect-ratio: 1; border-radius: 50%; background: rgba(255, 79, 154, .14); filter: blur(40px); pointer-events: none; }
-@media (max-width: 700px) {
-    .landing-hero { min-height: 94svh; padding: 100px 20px 84px; }
-    .landing-title { font-size: clamp(42px, 12.5vw, 68px); }
-    .landing-viewfinder { top: 34%; right: 10%; width: min(69vw, 270px); opacity: .55; }
-    .landing-film-mark--one { top: 19%; right: 5%; }
-    .landing-film-mark--two { right: 8%; bottom: 18%; }
-    .landing-scroll-cue { bottom: 25px; left: 20px; font-size: 8px; }
-    .landing-next-frame { min-height: 0; grid-template-columns: 1fr; gap: 26px; padding: 76px 22px 82px; }
-    .landing-next-copy h2 { font-size: clamp(44px, 12vw, 62px); }
-    .landing-camera { min-height: 270px; }
-    .camera-body { width: min(86%, 360px); }
-    .camera-orbit--two { width: 78%; }
+@media (max-width: 900px) {
+    .landing-hero { min-height: 94svh; padding: 104px 22px 92px; }
+    .landing-title { max-width: 680px; font-size: clamp(52px, 11.5vw, 82px); }
+    .landing-color-wheel { width: clamp(260px, 64vw, 420px); right: -100px; top: 48%; opacity: .9; }
+    .landing-stamp { top: 19%; right: 7%; width: 80px; font-size: 9px; }
+    .polaroid-experience { min-height: auto; grid-template-columns: 1fr; gap: 10px; padding: 78px 22px 54px; }
+    .polaroid-copy { max-width: 560px; }
+    .polaroid-copy h2 { font-size: clamp(44px, 10vw, 68px); }
+    .scroll-instruction { margin-top: 24px; }
+    .polaroid-stage { min-height: 590px; width: min(100%, 600px); margin: 0 auto; }
+    .polaroid-camera { top: 20px; width: min(100%, 510px); }
+    .instant-print { top: 28%; width: clamp(230px, 47vw, 285px); }
+    @keyframes print-eject { 0% { opacity: 0; transform: translate(-50%, -30px) rotate(0) scale(.9); } 65% { opacity: 1; transform: translate(-50%, 92px) rotate(5deg) scale(1); } 82% { transform: translate(-50%, 80px) rotate(1deg) scale(1); } 100% { opacity: 1; transform: translate(-50%, 86px) rotate(2deg) scale(1); } }
 }
-@media (max-width: 390px) {
-    .landing-viewfinder { width: min(68vw, 260px); top: 34%; }
-    .landing-camera { min-height: 230px; }
+@media (max-width: 480px) {
+    .landing-hero { min-height: 88svh; }
+    .landing-title { font-size: clamp(45px, 12vw, 60px); }
+    .landing-color-wheel { width: 285px; right: -128px; top: 49%; border-width: 9px; box-shadow: 10px 11px 0 var(--ink); }
+    .landing-stamp { top: 17%; right: 6%; width: 68px; border-width: 2px; font-size: 8px; }
+    .landing-subcopy { max-width: 335px; font-size: 14px; }
+    .polaroid-experience { padding: 70px 20px 35px; }
+    .polaroid-stage { min-height: 520px; }
+    .polaroid-camera { top: 30px; width: 108%; max-width: 440px; }
+    .instant-print { top: 36%; width: min(69vw, 250px); padding: 9px 9px 12px; }
+    .print-caption { gap: 7px; padding-top: 9px; }
+    .print-plan-button { min-height: 37px; }
+    .camera-action-label { top: 5px; right: 0; font-size: 8px; }
+    .camera-flash-burst { top: 24%; left: 32%; width: 170px; }
+    @keyframes print-eject { 0% { opacity: 0; transform: translate(-50%, -20px) rotate(0) scale(.9); } 65% { opacity: 1; transform: translate(-50%, 58px) rotate(5deg) scale(1); } 82% { transform: translate(-50%, 52px) rotate(1deg) scale(1); } 100% { opacity: 1; transform: translate(-50%, 55px) rotate(2deg) scale(1); } }
 }
 @media (prefers-reduced-motion: reduce) {
-    .landing-flash, .camera-glint { animation: none; }
-    html.has-scroll-reveal .landing-reveal { opacity: 1; transform: none; transition: none; }
-    .landing-shutter-button, .camera-body { transition: none; }
+    .polaroid-experience.is-shot .polaroid-camera,
+    .polaroid-experience.is-shot .camera-shutter,
+    .polaroid-experience.is-shot .camera-flash-burst,
+    .polaroid-experience.is-shot .camera-spark,
+    .polaroid-experience.is-shot .instant-print { animation-duration: .01ms; animation-delay: 0ms; }
+    .polaroid-experience.is-shot .instant-print { opacity: 1; transform: translate(-50%, 0) rotate(2deg) scale(1); }
 }
 
 .nav-links { flex-wrap: wrap; }
