@@ -479,6 +479,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .logo:hover .logo-mark-lens, .logo:focus-visible .logo-mark-lens { transform: rotate(120deg) scale(1.12); }
 .logo:focus-visible { outline: 3px solid var(--purple); outline-offset: 5px; border-radius: 4px; }
 
+@media (max-width: 390px) {
+    .logo { gap: 6px; }
+    .logo-mark { width: 27px; height: 27px; }
+    .logo-name { font-size: 15px; }
+    .logo > .logo-divider { font-size: 20px; }
+}
+
 @media (max-width: 700px) {
     .navbar { height: 64px; padding-inline: 18px; }
     .nav-links { gap: 12px; font-size: 12px; }

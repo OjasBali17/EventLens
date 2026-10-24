@@ -304,6 +304,11 @@ html.has-scroll-reveal .landing-reveal.is-visible { opacity: 1; transform: trans
     .nav-links .nav-button, .nav-links .nav-cta { padding: 7px 9px; }
 }
 @media (max-width: 390px) {
+    .editorial-page .nav-links { gap: 6px; }
+    .editorial-page .nav-links a[aria-current="page"]:not(.nav-cta) { display: none; }
+    .editorial-page .nav-links .nav-button, .editorial-page .nav-links .nav-cta { padding: 6px 8px; font-size: 9px; }
+}
+@media (max-width: 390px) {
     .navbar { padding-inline: 12px; }
     .logo { font-size: 14px; }
     .nav-links { gap: 5px; font-size: 10px; }
