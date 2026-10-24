@@ -81,18 +81,18 @@ body > nav, body > main, body > footer { position: relative; z-index: 1; }
 .polaroid-camera { position: absolute; z-index: 2; top: 34px; left: 50%; width: min(100%, 570px); height: auto; overflow: visible; transform: translateX(-50%) rotate(-2deg); transform-origin: center; transition: transform .35s ease; }
 .polaroid-experience.is-shot .polaroid-camera { animation: camera-click .38s ease-out; }
 .camera-flash-glass { transition: filter .18s ease; }
-.polaroid-experience.is-shot .camera-flash-glass { animation: flash-glass 1.3s ease-out; }
+.polaroid-experience.is-shot .camera-flash-glass { animation: flash-glass 1.9s ease-out; }
 .camera-shutter { transform-box: fill-box; transform-origin: center; }
 .polaroid-experience.is-shot .camera-shutter { animation: shutter-blink .3s ease-out; }
-.camera-flash-burst { position: absolute; z-index: 4; top: 26%; left: 40%; width: 230px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 3%, #fff8c9 9%, rgba(255,201,51,.82) 20%, rgba(255,79,154,.3) 40%, transparent 70%); opacity: 0; pointer-events: none; }
-.polaroid-experience.is-shot .camera-flash-burst { animation: flash-pop 1.3s ease-out both; }
+.camera-flash-burst { position: absolute; z-index: 4; top: 25%; left: 40%; width: clamp(270px, 34vw, 380px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 7%, #fffde7 16%, rgba(255,245,173,.95) 29%, rgba(255,201,51,.62) 43%, rgba(255,79,154,.24) 59%, transparent 75%); filter: drop-shadow(0 0 32px rgba(255,255,255,.75)); opacity: 0; pointer-events: none; }
+.polaroid-experience.is-shot .camera-flash-burst { animation: flash-pop 1.9s ease-out both; }
 .camera-action-label { position: absolute; z-index: 4; top: 10px; right: 4%; padding: 10px 13px; border: 2px solid var(--ink); background: var(--yellow); color: var(--ink); font: 900 10px/1 "DM Mono", monospace; letter-spacing: .09em; transform: rotate(3deg); }
 .camera-spark { position: absolute; z-index: 4; top: 16%; right: 13%; color: var(--yellow); font-size: 48px; opacity: 0; }
 .polaroid-experience.is-shot .camera-spark { animation: spark-pop .7s .04s ease-out both; }
 .instant-print { position: absolute; z-index: 3; top: 30%; left: 50%; width: clamp(235px, 27vw, 305px); margin: 0; padding: 12px 12px 16px; background: #fffdf7; color: #21132d; box-shadow: 0 18px 35px rgba(12, 5, 25, .35); opacity: 0; transform: translate(-50%, -20px) rotate(2deg) scale(.94); }
 .polaroid-experience.is-printing .instant-print { animation: print-eject 1.05s cubic-bezier(.2,.8,.2,1) both; }
 .polaroid-experience.is-printing .print-art svg { filter: grayscale(1) blur(7px) brightness(1.25); }
-.polaroid-experience.is-printing .instant-print.is-developing .print-art svg { animation: photo-develop 5.6s ease-out forwards; }
+.polaroid-experience.is-printing .instant-print.is-developing .print-art svg { animation: photo-develop 3.6s ease-out forwards; }
 .polaroid-experience.is-printing .instant-print.is-developed .print-art svg { filter: none; }
 .print-plan-button { visibility: hidden; }
 .instant-print.is-developed .print-plan-button { visibility: visible; }
@@ -103,9 +103,9 @@ body > nav, body > main, body > footer { position: relative; z-index: 1; }
 .print-plan-button { display: inline-flex; justify-content: center; align-items: center; gap: 12px; min-height: 42px; padding: 10px 14px; border: 2px solid #21132d; background: var(--pink); color: #21132d; font-size: 13px; font-weight: 900; }
 .print-plan-button:hover { background: var(--yellow); }
 @keyframes camera-click { 0%,100% { transform: translateX(-50%) rotate(-2deg); } 24% { transform: translateX(-50%) rotate(2deg) scale(.985); } 48% { transform: translateX(-50%) rotate(-3deg) scale(1.01); } }
-@keyframes flash-glass { 0%,100% { filter: brightness(1); } 12% { filter: brightness(2.5) drop-shadow(0 0 14px #fff); } 34% { filter: brightness(2.1) drop-shadow(0 0 12px #fff); } 100% { filter: brightness(1); } }
+@keyframes flash-glass { 0%,100% { filter: brightness(1); } 10% { filter: brightness(4.2) drop-shadow(0 0 34px #fff); } 32% { filter: brightness(3.8) drop-shadow(0 0 28px #fff); } 58% { filter: brightness(2.6) drop-shadow(0 0 20px #fff); } 100% { filter: brightness(1); } }
 @keyframes shutter-blink { 0%,100% { opacity: 1; } 35% { opacity: .08; } }
-@keyframes flash-pop { 0% { opacity: 0; transform: scale(.35); } 10% { opacity: 1; transform: scale(1.25); } 34% { opacity: .92; } 54% { opacity: .44; } 100% { opacity: 0; transform: scale(1.8); } }
+@keyframes flash-pop { 0% { opacity: 0; transform: scale(.35); } 9% { opacity: 1; transform: scale(1.25); } 32% { opacity: 1; } 58% { opacity: .78; } 78% { opacity: .35; } 100% { opacity: 0; transform: scale(1.8); } }
 @keyframes spark-pop { 0% { opacity: 0; transform: scale(.2) rotate(-35deg); } 35% { opacity: 1; transform: scale(1.2) rotate(10deg); } 100% { opacity: 0; transform: scale(.9) rotate(30deg); } }
 @keyframes print-eject { 0% { opacity: 0; transform: translate(-50%, -35px) rotate(0) scale(.88); } 65% { opacity: 1; transform: translate(-50%, 120px) rotate(5deg) scale(1); } 82% { transform: translate(-50%, 108px) rotate(1deg) scale(1); } 100% { opacity: 1; transform: translate(-50%, 115px) rotate(2deg) scale(1); } }
 @keyframes photo-develop { 0% { filter: grayscale(1) blur(7px) brightness(1.25); } 34% { filter: grayscale(.7) blur(4px) brightness(1.16); } 72% { filter: grayscale(.24) blur(1.5px) brightness(1.05); } 100% { filter: grayscale(0) blur(0) brightness(1); } }
@@ -138,7 +138,7 @@ html.has-scroll-reveal .landing-reveal.is-visible { opacity: 1; transform: trans
     .print-caption { gap: 7px; padding-top: 9px; }
     .print-plan-button { min-height: 37px; }
     .camera-action-label { top: 5px; right: 0; font-size: 8px; }
-    .camera-flash-burst { top: 24%; left: 32%; width: 170px; }
+    .camera-flash-burst { top: 24%; left: 32%; width: 230px; }
     @keyframes print-eject { 0% { opacity: 0; transform: translate(-50%, -20px) rotate(0) scale(.9); } 65% { opacity: 1; transform: translate(-50%, 58px) rotate(5deg) scale(1); } 82% { transform: translate(-50%, 52px) rotate(1deg) scale(1); } 100% { opacity: 1; transform: translate(-50%, 55px) rotate(2deg) scale(1); } }
 }
 @media (prefers-reduced-motion: reduce) {

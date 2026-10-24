@@ -62,7 +62,7 @@
             if (printCaption) printCaption.textContent = "DEVELOPING IN FULL COLOR";
             print?.classList.add("is-developing");
             if (reducedMotion) finishDevelopment();
-            else window.setTimeout(finishDevelopment, 5600);
+            else window.setTimeout(finishDevelopment, 3600);
         }, reducedMotion ? 0 : 1050);
     };
 
