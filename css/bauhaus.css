@@ -360,4 +360,9 @@ footer, .dashboard-footer { background: var(--bauhaus-black); color: var(--bauha
 @media (prefers-reduced-motion: reduce) {
     .logo-mark, .shutter-blade, .shutter-center, .nav-links a, .dashboard-nav-right a, .event-progress a,
     .hero-button, .generate-button, .shot-row, .info-card, .workflow-step { transition: none; }
+    .logo:hover .shutter-blade, .logo:focus-visible .shutter-blade,
+    .logo:hover .shutter-center, .logo:focus-visible .shutter-center,
+    .logo:hover .logo-name::after, .logo:focus-visible .logo-name::after { animation: none; }
+    .logo:hover .shutter-blade, .logo:focus-visible .shutter-blade { transform: rotate(var(--blade-angle)) translateY(-1px); }
+    .logo:hover .shutter-center, .logo:focus-visible .shutter-center { r: 8px; }
 }
