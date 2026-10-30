@@ -40,16 +40,10 @@ body > .polka-field { opacity: .52; }
     backdrop-filter: none;
 }
 .logo { color: var(--bauhaus-black); }
-.logo-mark-body { fill: var(--bauhaus-blue); stroke: var(--bauhaus-black); }
-.logo-mark-top { fill: var(--bauhaus-yellow); stroke: var(--bauhaus-black); }
-.logo-mark-ring { stroke: var(--bauhaus-paper); }
-.logo-mark-lens { fill: var(--bauhaus-red); stroke: var(--bauhaus-black); }
-.logo-mark-glint { fill: var(--bauhaus-paper); }
-.logo-mark-flash { fill: var(--bauhaus-yellow); stroke: var(--bauhaus-black); }
 .logo > .logo-divider { color: var(--bauhaus-black); opacity: .55; }
 .logo-name { color: var(--bauhaus-black); font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: -.08em; }
 .logo-name > span { color: var(--bauhaus-blue); }
-.logo:hover .logo-mark, .logo:focus-visible .logo-mark { filter: drop-shadow(3px 3px 0 var(--bauhaus-yellow)); }
+.logo:hover .logo-mark, .logo:focus-visible .logo-mark { filter: drop-shadow(2px 4px 0 rgba(23,23,21,.26)); }
 .logo:focus-visible { outline-color: var(--bauhaus-red); }
 
 .nav-links { color: var(--bauhaus-black); }
@@ -364,6 +358,6 @@ footer, .dashboard-footer { background: var(--bauhaus-black); color: var(--bauha
     .flow-row-actions button:last-child { margin-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-    .logo-mark, .logo-mark-lens, .nav-links a, .dashboard-nav-right a, .event-progress a,
+    .logo-mark, .shutter-blade, .shutter-center, .nav-links a, .dashboard-nav-right a, .event-progress a,
     .hero-button, .generate-button, .shot-row, .info-card, .workflow-step { transition: none; }
 }

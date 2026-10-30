@@ -463,20 +463,18 @@ body { background: var(--obsidian); color: var(--ink); font-size: 15px; line-hei
 footer { min-height: 68px; padding-inline: clamp(20px, 7vw, 100px); background: var(--ink); color: #e4d7ff; font-size: 10px; }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 
-/* EventLens camera mark and wordmark. */
+/* EventLens shutter mark and wordmark. */
 .logo { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; }
-.logo-mark { width: 32px; height: 32px; flex: 0 0 auto; overflow: visible; filter: drop-shadow(2px 3px 0 rgba(30,16,51,.18)); transition: transform .28s cubic-bezier(.2,.8,.2,1), filter .28s ease; }
-.logo-mark-body { fill: var(--plum); stroke: var(--ink); stroke-width: 1.5; }
-.logo-mark-top { fill: var(--yellow); stroke: var(--ink); stroke-width: 1; }
-.logo-mark-ring { fill: none; stroke: #fff8ec; stroke-width: 2.2; }
-.logo-mark-lens { fill: var(--pink); stroke: var(--ink); stroke-width: 1; transform-box: fill-box; transform-origin: center; transition: transform .35s ease; }
-.logo-mark-glint { fill: #fff8ec; }
-.logo-mark-flash { fill: var(--mint); stroke: var(--ink); stroke-width: 1; }
+.logo-mark { width: 32px; height: 32px; flex: 0 0 auto; overflow: visible; filter: drop-shadow(2px 3px 0 rgba(30,16,51,.18)); transition: filter .28s ease; }
+.shutter-blade { transform-box: view-box; transform-origin: 24px 24px; transform: rotate(var(--blade-angle)) translateY(0); transition: transform .48s cubic-bezier(.2,.8,.2,1); }
+.shutter-blade path { fill: var(--blade-fill); stroke: var(--bauhaus-paper, #f2f0e8); stroke-width: 1.5; stroke-linejoin: round; }
+.shutter-center { fill: var(--bauhaus-paper, #f2f0e8); transform-box: view-box; transform-origin: 24px 24px; transition: r .48s cubic-bezier(.2,.8,.2,1), fill .3s ease; }
 .logo > .logo-divider { color: var(--muted); font: 500 24px/1 "Space Grotesk", sans-serif; opacity: .65; }
 .logo-name { color: var(--ink); font: 700 18px/1 "Space Grotesk", "Manrope", sans-serif; letter-spacing: -.075em; }
 .logo-name > span { color: var(--purple); }
-.logo:hover .logo-mark, .logo:focus-visible .logo-mark { transform: rotate(-8deg) scale(1.08); filter: drop-shadow(3px 4px 0 rgba(30,16,51,.26)); }
-.logo:hover .logo-mark-lens, .logo:focus-visible .logo-mark-lens { transform: rotate(120deg) scale(1.12); }
+.logo:hover .logo-mark, .logo:focus-visible .logo-mark { filter: drop-shadow(2px 4px 0 rgba(30,16,51,.24)); }
+.logo:hover .shutter-blade, .logo:focus-visible .shutter-blade { transform: rotate(var(--blade-angle)) translateY(-1.5px); }
+.logo:hover .shutter-center, .logo:focus-visible .shutter-center { r: 8px; fill: #fff; }
 .logo:focus-visible { outline: 3px solid var(--purple); outline-offset: 5px; border-radius: 4px; }
 
 @media (max-width: 390px) {
