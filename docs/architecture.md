@@ -65,11 +65,16 @@ The frontend sends these fields:
   "photographers": 2,
   "environment": "Indoor",
   "style": "Documentary",
-  "importantDetails": "Opening talk and awards"
+  "importantDetails": "Opening talk and awards",
+  "flow": [
+    { "start": "09:00", "end": "09:30", "activity": "Guest arrivals", "notes": "Capture welcome and registration." }
+  ]
 }
 ```
 
-The response contains `event`, `analysis`, `engine`, `ai_powered`, and `model`. `analysis` includes `event_summary`, `stages`, `key_moments`, `activity_periods`, `coverage_requirements`, `potential_conflicts`, `shots`, `risks`, `assignments`, `dont_miss`, `creative_suggestions`, and `critique`.
+`flow` is optional. Each segment has a start and end time, activity name, and optional photography notes. The event form allows segments to overlap, be reordered, and be removed. When provided, they guide the AI's shot planning and are shown as the results timeline; when omitted, the existing default timeline is preserved.
+
+The response contains `event`, `analysis`, `engine`, `ai_powered`, and `model`. `analysis` includes `event_summary`, `stages`, `key_moments`, `activity_periods`, `coverage_requirements`, `potential_conflicts`, `timeline`, `shots`, `risks`, `assignments`, `dont_miss`, `creative_suggestions`, and `critique`. `timeline` carries a photography priority and direction for each planned moment.
 
 The AI plan is generated in two calls: first event structure and moments, then a photography plan based on that analysis. Each provider request has a bounded timeout and the output size is capped. If either call fails or the key is absent, the backend returns the rules-based plan with `ai_powered: false`.
 

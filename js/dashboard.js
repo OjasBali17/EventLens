@@ -100,6 +100,31 @@ document.getElementById(
         eventData.endTime
     );
 
+// Use the photographer's custom flow in place of the generic timeline when supplied.
+if (Array.isArray(eventData.flow) && eventData.flow.length) {
+    const timeline = document.querySelector(".timeline");
+    const plannedEntries = Array.isArray(analysis.timeline) ? analysis.timeline : [];
+    if (timeline) {
+        timeline.innerHTML = `<div class="timeline-line"></div>` + eventData.flow.map((segment, index) => {
+            const recommendation = plannedEntries[index] || {};
+            const priority = String(recommendation.priority || "HIGH").toLowerCase();
+            const description = recommendation.description || segment.notes || `Cover ${segment.activity} with attention to key people, reactions, and the surrounding atmosphere.`;
+            return `
+                <article class="timeline-item">
+                    <div class="timeline-time">${escapeHtml(segment.start)} – ${escapeHtml(segment.end)}</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="priority ${escapeHtml(priority)}">${escapeHtml(priority.toUpperCase())}</span>
+                        <h3>${escapeHtml(segment.activity)}</h3>
+                        <p>${escapeHtml(description)}</p>
+                        ${segment.notes ? `<p class="timeline-user-notes"><strong>YOUR NOTES</strong> ${escapeHtml(segment.notes)}</p>` : ""}
+                        <div class="timeline-tags"><span>PLANNED MOMENT</span><span>${escapeHtml(eventData.style || "PHOTO COVERAGE").toUpperCase()}</span></div>
+                    </div>
+                </article>`;
+        }).join("");
+    }
+}
+
 const structureList =
     document.querySelector(".structure-list");
 

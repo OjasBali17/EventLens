@@ -37,7 +37,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, Field, field_validator
 from google import genai
 from google.genai import types
 
@@ -82,6 +82,13 @@ def get_gemini_client():
         return None
 
 
+class EventFlowSegment(BaseModel):
+    start: str
+    end: str
+    activity: str = Field(min_length=1, max_length=120)
+    notes: str = Field(default="", max_length=500)
+
+
 class EventData(BaseModel):
     name: str
     type: str
@@ -94,6 +101,7 @@ class EventData(BaseModel):
     environment: str
     style: str
     importantDetails: str
+    flow: list[EventFlowSegment] = Field(default_factory=list, max_length=60)
 
 
 class Stage(BaseModel):
@@ -119,6 +127,13 @@ class ActivityPeriod(BaseModel):
     photography_demand: str
 
 
+class TimelineEntry(BaseModel):
+    time: str
+    title: str
+    description: str
+    priority: str
+
+
 class EventAnalysis(BaseModel):
     event_summary: str
     stages: list[Stage]
@@ -126,6 +141,7 @@ class EventAnalysis(BaseModel):
     activity_periods: list[ActivityPeriod]
     coverage_requirements: list[str]
     potential_conflicts: list[str]
+    timeline: list[TimelineEntry] = Field(default_factory=list)
 
     @field_validator("potential_conflicts", mode="before")
     @classmethod
@@ -228,6 +244,7 @@ def generate_tailored_plan(event_data: dict) -> dict:
     details = event_data.get("importantDetails", "Key celebrations and interactions.")
     start_t = event_data.get("startTime", "18:00")
     end_t = event_data.get("endTime", "23:00")
+    flow = event_data.get("flow", [])
 
     summary = (
         f"{name} is a {style.lower()}-focused {ev_type.lower()} held at {venue} "
@@ -448,6 +465,15 @@ def generate_tailored_plan(event_data: dict) -> dict:
             "activity_periods": [period.model_dump() for period in activity_periods],
             "coverage_requirements": coverage_requirements,
             "potential_conflicts": potential_conflicts,
+            "timeline": [
+                {
+                    "time": f'{item.get("start", "")}–{item.get("end", "")}',
+                    "title": item.get("activity", "Planned event moment"),
+                    "description": item.get("notes") or f'Photograph {item.get("activity", "this moment")} with attention to people, reactions and the surrounding atmosphere.',
+                    "priority": "CRITICAL" if any(word in item.get("activity", "").lower() for word in ("ceremony", "speech", "award", "vow", "first dance", "launch", "keynote", "performance", "entry")) else "HIGH"
+                }
+                for item in flow
+            ],
             "shots": [shot.model_dump() for shot in shots],
             "risks": [risk.model_dump() for risk in risks],
             "assignments": [assignment.model_dump() for assignment in assignments],
@@ -517,6 +543,9 @@ Photography Style:
 Important Details:
 {event_data["importantDetails"]}
 
+Photographer's custom minute-by-minute event flow (may be empty):
+{json.dumps([item.model_dump() for item in event.flow], ensure_ascii=False)}
+
 Identify:
 
 1. Major event stages
@@ -525,6 +554,7 @@ Identify:
 4. Photography demand
 5. Coverage requirements
 6. Potential simultaneous-event conflicts
+7. A photography-focused timeline entry for every supplied custom flow segment. Preserve its time and activity, add a concise photo direction, and set priority to CRITICAL, HIGH, MEDIUM, or OPTIONAL. If no custom flow was supplied, create 4 practical entries spanning the event.
 
 OUTPUT SIZE:
 
@@ -557,6 +587,9 @@ The first stage analyzed the event.
 EVENT DATA:
 
 {event_data}
+
+CUSTOM EVENT FLOW:
+Use every user-supplied timed segment in the timeline, preserve the activity and times, and shape the shot list, photographer assignments, coverage risks, and don't-miss checklist around it. Call out overlapping high-priority activities when photographer coverage may conflict. The user flow is authoritative; do not replace it with invented agenda items.
 
 EVENT ANALYSIS:
 
@@ -686,6 +719,7 @@ CONSTRAINTS:
                         "activity_periods": [period.model_dump() for period in event_analysis.activity_periods],
                         "coverage_requirements": event_analysis.coverage_requirements,
                         "potential_conflicts": event_analysis.potential_conflicts,
+                        "timeline": [entry.model_dump() for entry in event_analysis.timeline],
                         "shots": [shot.model_dump() for shot in final_analysis.shots],
                         "risks": [risk.model_dump() for risk in final_analysis.risks],
                         "assignments": [assignment.model_dump() for assignment in final_analysis.assignments],
