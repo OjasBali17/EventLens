@@ -27,7 +27,7 @@ html { scroll-padding-top: 76px; }
 body { background: var(--bauhaus-paper); color: var(--bauhaus-black); font-family: "Manrope", sans-serif; }
 ::selection { color: var(--bauhaus-paper); background: var(--bauhaus-blue); }
 body > .polka-field { opacity: .52; }
-.polka-dot { opacity: .17; animation-duration: calc(var(--dot-duration) * 1.25), 10s; }
+.polka-dot { background: var(--bauhaus-blue); opacity: .12; animation-duration: calc(var(--dot-duration) * 1.25), 10s; }
 .polka-dot:nth-child(3n) { border: 2px solid var(--bauhaus-blue); background: transparent; opacity: .2; }
 .polka-dot:nth-child(4n) { border-radius: 0; background: var(--bauhaus-yellow); opacity: .16; rotate: 45deg; }
 .polka-dot:nth-child(5n) { border-radius: 0; background: var(--bauhaus-red); opacity: .15; }
@@ -73,6 +73,7 @@ body > .polka-field { opacity: .52; }
     background: var(--bauhaus-yellow);
     color: var(--bauhaus-black) !important;
 }
+.event-progress a { display: inline-flex; align-items: center; min-height: 34px; padding: 7px 11px; font-size: 11px; font-weight: 800; }
 .dashboard-nav-right { gap: 11px; }
 .dashboard-nav-right a { font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 800; letter-spacing: .02em; }
 
